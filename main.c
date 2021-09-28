@@ -50,11 +50,4 @@ __interrupt void Timer_A(void){
     TACTL = MC_0;
     break;
   }
-//  count++;
-//  TACCR0 = 12500+1000;
-//  P2OUT = 0;
-//  if(count == DELAY_MS){
-//    
-//    count=0;
-//  }
 }
