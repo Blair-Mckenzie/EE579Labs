@@ -22336,7 +22336,7 @@
     "display": "void configureTimerA(void)",
     "location": {
       "column": "6",
-      "line": "35",
+      "line": "24",
       "path": "C:\\Users\\Blair\\Documents\\Uni\\5th Year\\EE579\\TrafficLights\\main.c"
     },
     "name": "configureTimerA",
@@ -22350,7 +22350,7 @@
     "display": "void Timer_A(void)",
     "location": {
       "column": "18",
-      "line": "46",
+      "line": "37",
       "path": "C:\\Users\\Blair\\Documents\\Uni\\5th Year\\EE579\\TrafficLights\\main.c"
     },
     "name": "Timer_A",
