@@ -22218,100 +22218,198 @@
     "scope": null
   },
   {
-    "ID": "c:main.c@30@macro@LED2",
+    "ID": "c:main.c@28@macro@LED2",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "LED2",
     "location": {
       "column": "9",
-      "line": "3",
-      "path": "C:\\Users\\Blair\\Documents\\Uni\\5th Year\\EE579\\TrafficLights\\main.c"
+      "line": "2",
+      "path": "C:\\Users\\bmcke\\Documents\\Uni\\EE579\\EE579Week1-3\\main.c"
     },
     "name": "LED2",
     "origin": "project_file",
     "scope": null
   },
   {
-    "ID": "c:main.c@49@macro@LED3",
+    "ID": "c:main.c@47@macro@LED3",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "LED3",
     "location": {
       "column": "9",
-      "line": "4",
-      "path": "C:\\Users\\Blair\\Documents\\Uni\\5th Year\\EE579\\TrafficLights\\main.c"
+      "line": "3",
+      "path": "C:\\Users\\bmcke\\Documents\\Uni\\EE579\\EE579Week1-3\\main.c"
     },
     "name": "LED3",
     "origin": "project_file",
     "scope": null
   },
   {
-    "ID": "c:main.c@83@macro@RED",
+    "ID": "c:main.c@81@macro@RED",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "RED",
     "location": {
       "column": "9",
-      "line": "5",
-      "path": "C:\\Users\\Blair\\Documents\\Uni\\5th Year\\EE579\\TrafficLights\\main.c"
+      "line": "4",
+      "path": "C:\\Users\\bmcke\\Documents\\Uni\\EE579\\EE579Week1-3\\main.c"
     },
     "name": "RED",
     "origin": "project_file",
     "scope": null
   },
   {
-    "ID": "c:main.c@103@macro@YELLOW",
+    "ID": "c:main.c@101@macro@YELLOW",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "YELLOW",
     "location": {
       "column": "9",
-      "line": "6",
-      "path": "C:\\Users\\Blair\\Documents\\Uni\\5th Year\\EE579\\TrafficLights\\main.c"
+      "line": "5",
+      "path": "C:\\Users\\bmcke\\Documents\\Uni\\EE579\\EE579Week1-3\\main.c"
     },
     "name": "YELLOW",
     "origin": "project_file",
     "scope": null
   },
   {
-    "ID": "c:main.c@133@macro@SWITCH",
+    "ID": "c:main.c@131@macro@SWITCH",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "SWITCH",
     "location": {
       "column": "9",
-      "line": "7",
-      "path": "C:\\Users\\Blair\\Documents\\Uni\\5th Year\\EE579\\TrafficLights\\main.c"
+      "line": "6",
+      "path": "C:\\Users\\bmcke\\Documents\\Uni\\EE579\\EE579Week1-3\\main.c"
     },
     "name": "SWITCH",
     "origin": "project_file",
     "scope": null
   },
   {
-    "ID": "c:main.c@154@macro@TIMER",
+    "ID": "c:main.c@152@macro@TIMER",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "TIMER",
     "location": {
       "column": "9",
-      "line": "8",
-      "path": "C:\\Users\\Blair\\Documents\\Uni\\5th Year\\EE579\\TrafficLights\\main.c"
+      "line": "7",
+      "path": "C:\\Users\\bmcke\\Documents\\Uni\\EE579\\EE579Week1-3\\main.c"
     },
     "name": "TIMER",
     "origin": "project_file",
     "scope": null
   },
   {
-    "ID": "c:@F@configureTimerA",
+    "ID": "c:main.c@209@macro@FLASHRATE",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "FLASHRATE",
+    "location": {
+      "column": "9",
+      "line": "8",
+      "path": "C:\\Users\\bmcke\\Documents\\Uni\\EE579\\EE579Week1-3\\main.c"
+    },
+    "name": "FLASHRATE",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:main.c@268@macro@LED_DELAY",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "LED_DELAY",
+    "location": {
+      "column": "9",
+      "line": "9",
+      "path": "C:\\Users\\bmcke\\Documents\\Uni\\EE579\\EE579Week1-3\\main.c"
+    },
+    "name": "LED_DELAY",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@setUpIO",
     "What": "Function",
     "defdec": "Dec",
-    "display": "void configureTimerA(void)",
+    "display": "void setUpIO(void)",
     "location": {
       "column": "6",
-      "line": "10",
-      "path": "C:\\Users\\Blair\\Documents\\Uni\\5th Year\\EE579\\TrafficLights\\main.c"
+      "line": "12",
+      "path": "C:\\Users\\bmcke\\Documents\\Uni\\EE579\\EE579Week1-3\\main.c"
     },
-    "name": "configureTimerA",
+    "name": "setUpIO",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@configureTimer",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void configureTimer(void)",
+    "location": {
+      "column": "6",
+      "line": "13",
+      "path": "C:\\Users\\bmcke\\Documents\\Uni\\EE579\\EE579Week1-3\\main.c"
+    },
+    "name": "configureTimer",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@startTimer",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void startTimer(void)",
+    "location": {
+      "column": "6",
+      "line": "14",
+      "path": "C:\\Users\\bmcke\\Documents\\Uni\\EE579\\EE579Week1-3\\main.c"
+    },
+    "name": "startTimer",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@startAndConfigureFlashing",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void startAndConfigureFlashing(void)",
+    "location": {
+      "column": "6",
+      "line": "15",
+      "path": "C:\\Users\\bmcke\\Documents\\Uni\\EE579\\EE579Week1-3\\main.c"
+    },
+    "name": "startAndConfigureFlashing",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@driver",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void driver(void)",
+    "location": {
+      "column": "6",
+      "line": "16",
+      "path": "C:\\Users\\bmcke\\Documents\\Uni\\EE579\\EE579Week1-3\\main.c"
+    },
+    "name": "driver",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@i",
+    "What": "Variable",
+    "defdec": "Dec",
+    "display": "i",
+    "location": {
+      "column": "14",
+      "line": "18",
+      "path": "C:\\Users\\bmcke\\Documents\\Uni\\EE579\\EE579Week1-3\\main.c"
+    },
+    "name": "i",
     "origin": "project_file",
     "scope": null
   },
@@ -22322,24 +22420,80 @@
     "display": "int main(void)",
     "location": {
       "column": "5",
-      "line": "13",
-      "path": "C:\\Users\\Blair\\Documents\\Uni\\5th Year\\EE579\\TrafficLights\\main.c"
+      "line": "20",
+      "path": "C:\\Users\\bmcke\\Documents\\Uni\\EE579\\EE579Week1-3\\main.c"
     },
     "name": "main",
     "origin": "project_file",
     "scope": null
   },
   {
-    "ID": "c:@F@configureTimerA",
+    "ID": "c:@F@driver",
     "What": "Function",
     "defdec": "Def",
-    "display": "void configureTimerA(void)",
+    "display": "void driver(void)",
     "location": {
       "column": "6",
-      "line": "24",
-      "path": "C:\\Users\\Blair\\Documents\\Uni\\5th Year\\EE579\\TrafficLights\\main.c"
+      "line": "30",
+      "path": "C:\\Users\\bmcke\\Documents\\Uni\\EE579\\EE579Week1-3\\main.c"
     },
-    "name": "configureTimerA",
+    "name": "driver",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@setUpIO",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void setUpIO(void)",
+    "location": {
+      "column": "6",
+      "line": "45",
+      "path": "C:\\Users\\bmcke\\Documents\\Uni\\EE579\\EE579Week1-3\\main.c"
+    },
+    "name": "setUpIO",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@configureTimer",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void configureTimer(void)",
+    "location": {
+      "column": "6",
+      "line": "58",
+      "path": "C:\\Users\\bmcke\\Documents\\Uni\\EE579\\EE579Week1-3\\main.c"
+    },
+    "name": "configureTimer",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@startTimer",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void startTimer(void)",
+    "location": {
+      "column": "6",
+      "line": "65",
+      "path": "C:\\Users\\bmcke\\Documents\\Uni\\EE579\\EE579Week1-3\\main.c"
+    },
+    "name": "startTimer",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@startAndConfigureFlashing",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void startAndConfigureFlashing(void)",
+    "location": {
+      "column": "6",
+      "line": "69",
+      "path": "C:\\Users\\bmcke\\Documents\\Uni\\EE579\\EE579Week1-3\\main.c"
+    },
+    "name": "startAndConfigureFlashing",
     "origin": "project_file",
     "scope": null
   },
@@ -22350,8 +22504,8 @@
     "display": "void Timer_A(void)",
     "location": {
       "column": "18",
-      "line": "37",
-      "path": "C:\\Users\\Blair\\Documents\\Uni\\5th Year\\EE579\\TrafficLights\\main.c"
+      "line": "80",
+      "path": "C:\\Users\\bmcke\\Documents\\Uni\\EE579\\EE579Week1-3\\main.c"
     },
     "name": "Timer_A",
     "origin": "project_file",
