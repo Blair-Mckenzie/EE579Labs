@@ -21273,7 +21273,11 @@
     "location": {
       "column": "9",
       "line": "2",
+<<<<<<< HEAD
       "path": "C:\\Users\\bmcke\\Documents\\Uni\\EE579\\EE579Week1-3\\main.c"
+=======
+      "path": "C:\\Users\\Blair\\Documents\\Uni\\5th Year\\EE579\\TrafficLights\\main.c"
+>>>>>>> 75071ce0b51fb67c1afcea4366407e906b7ee758
     },
     "name": "LED2",
     "origin": "project_file",
@@ -21287,91 +21291,143 @@
     "location": {
       "column": "9",
       "line": "3",
+<<<<<<< HEAD
       "path": "C:\\Users\\bmcke\\Documents\\Uni\\EE579\\EE579Week1-3\\main.c"
+=======
+      "path": "C:\\Users\\Blair\\Documents\\Uni\\5th Year\\EE579\\TrafficLights\\main.c"
+>>>>>>> 75071ce0b51fb67c1afcea4366407e906b7ee758
     },
     "name": "LED3",
     "origin": "project_file",
     "scope": null
   },
   {
+<<<<<<< HEAD
     "ID": "c:main.c@81@macro@RED",
+=======
+    "ID": "c:main.c@82@macro@RED",
+>>>>>>> 75071ce0b51fb67c1afcea4366407e906b7ee758
     "What": "MacroDef",
     "defdec": "Def",
     "display": "RED",
     "location": {
       "column": "9",
       "line": "4",
+<<<<<<< HEAD
       "path": "C:\\Users\\bmcke\\Documents\\Uni\\EE579\\EE579Week1-3\\main.c"
+=======
+      "path": "C:\\Users\\Blair\\Documents\\Uni\\5th Year\\EE579\\TrafficLights\\main.c"
+>>>>>>> 75071ce0b51fb67c1afcea4366407e906b7ee758
     },
     "name": "RED",
     "origin": "project_file",
     "scope": null
   },
   {
+<<<<<<< HEAD
     "ID": "c:main.c@101@macro@YELLOW",
+=======
+    "ID": "c:main.c@102@macro@YELLOW",
+>>>>>>> 75071ce0b51fb67c1afcea4366407e906b7ee758
     "What": "MacroDef",
     "defdec": "Def",
     "display": "YELLOW",
     "location": {
       "column": "9",
       "line": "5",
+<<<<<<< HEAD
       "path": "C:\\Users\\bmcke\\Documents\\Uni\\EE579\\EE579Week1-3\\main.c"
+=======
+      "path": "C:\\Users\\Blair\\Documents\\Uni\\5th Year\\EE579\\TrafficLights\\main.c"
+>>>>>>> 75071ce0b51fb67c1afcea4366407e906b7ee758
     },
     "name": "YELLOW",
     "origin": "project_file",
     "scope": null
   },
   {
+<<<<<<< HEAD
     "ID": "c:main.c@131@macro@SWITCH",
+=======
+    "ID": "c:main.c@132@macro@SWITCH",
+>>>>>>> 75071ce0b51fb67c1afcea4366407e906b7ee758
     "What": "MacroDef",
     "defdec": "Def",
     "display": "SWITCH",
     "location": {
       "column": "9",
       "line": "6",
+<<<<<<< HEAD
       "path": "C:\\Users\\bmcke\\Documents\\Uni\\EE579\\EE579Week1-3\\main.c"
+=======
+      "path": "C:\\Users\\Blair\\Documents\\Uni\\5th Year\\EE579\\TrafficLights\\main.c"
+>>>>>>> 75071ce0b51fb67c1afcea4366407e906b7ee758
     },
     "name": "SWITCH",
     "origin": "project_file",
     "scope": null
   },
   {
+<<<<<<< HEAD
     "ID": "c:main.c@152@macro@TIMER",
+=======
+    "ID": "c:main.c@153@macro@TIMER",
+>>>>>>> 75071ce0b51fb67c1afcea4366407e906b7ee758
     "What": "MacroDef",
     "defdec": "Def",
     "display": "TIMER",
     "location": {
       "column": "9",
       "line": "7",
+<<<<<<< HEAD
       "path": "C:\\Users\\bmcke\\Documents\\Uni\\EE579\\EE579Week1-3\\main.c"
+=======
+      "path": "C:\\Users\\Blair\\Documents\\Uni\\5th Year\\EE579\\TrafficLights\\main.c"
+>>>>>>> 75071ce0b51fb67c1afcea4366407e906b7ee758
     },
     "name": "TIMER",
     "origin": "project_file",
     "scope": null
   },
   {
+<<<<<<< HEAD
     "ID": "c:main.c@209@macro@FLASHRATE",
+=======
+    "ID": "c:main.c@194@macro@FLASHRATE",
+>>>>>>> 75071ce0b51fb67c1afcea4366407e906b7ee758
     "What": "MacroDef",
     "defdec": "Def",
     "display": "FLASHRATE",
     "location": {
       "column": "9",
       "line": "8",
+<<<<<<< HEAD
       "path": "C:\\Users\\bmcke\\Documents\\Uni\\EE579\\EE579Week1-3\\main.c"
+=======
+      "path": "C:\\Users\\Blair\\Documents\\Uni\\5th Year\\EE579\\TrafficLights\\main.c"
+>>>>>>> 75071ce0b51fb67c1afcea4366407e906b7ee758
     },
     "name": "FLASHRATE",
     "origin": "project_file",
     "scope": null
   },
   {
+<<<<<<< HEAD
     "ID": "c:main.c@268@macro@LED_DELAY",
+=======
+    "ID": "c:main.c@237@macro@LED_DELAY",
+>>>>>>> 75071ce0b51fb67c1afcea4366407e906b7ee758
     "What": "MacroDef",
     "defdec": "Def",
     "display": "LED_DELAY",
     "location": {
       "column": "9",
       "line": "9",
+<<<<<<< HEAD
       "path": "C:\\Users\\bmcke\\Documents\\Uni\\EE579\\EE579Week1-3\\main.c"
+=======
+      "path": "C:\\Users\\Blair\\Documents\\Uni\\5th Year\\EE579\\TrafficLights\\main.c"
+>>>>>>> 75071ce0b51fb67c1afcea4366407e906b7ee758
     },
     "name": "LED_DELAY",
     "origin": "project_file",
@@ -21385,7 +21441,11 @@
     "location": {
       "column": "6",
       "line": "12",
+<<<<<<< HEAD
       "path": "C:\\Users\\bmcke\\Documents\\Uni\\EE579\\EE579Week1-3\\main.c"
+=======
+      "path": "C:\\Users\\Blair\\Documents\\Uni\\5th Year\\EE579\\TrafficLights\\main.c"
+>>>>>>> 75071ce0b51fb67c1afcea4366407e906b7ee758
     },
     "name": "setUpIO",
     "origin": "project_file",
@@ -21399,7 +21459,11 @@
     "location": {
       "column": "6",
       "line": "13",
+<<<<<<< HEAD
       "path": "C:\\Users\\bmcke\\Documents\\Uni\\EE579\\EE579Week1-3\\main.c"
+=======
+      "path": "C:\\Users\\Blair\\Documents\\Uni\\5th Year\\EE579\\TrafficLights\\main.c"
+>>>>>>> 75071ce0b51fb67c1afcea4366407e906b7ee758
     },
     "name": "configureTimer",
     "origin": "project_file",
@@ -21413,7 +21477,11 @@
     "location": {
       "column": "6",
       "line": "14",
+<<<<<<< HEAD
       "path": "C:\\Users\\bmcke\\Documents\\Uni\\EE579\\EE579Week1-3\\main.c"
+=======
+      "path": "C:\\Users\\Blair\\Documents\\Uni\\5th Year\\EE579\\TrafficLights\\main.c"
+>>>>>>> 75071ce0b51fb67c1afcea4366407e906b7ee758
     },
     "name": "startTimer",
     "origin": "project_file",
@@ -21427,7 +21495,11 @@
     "location": {
       "column": "6",
       "line": "15",
+<<<<<<< HEAD
       "path": "C:\\Users\\bmcke\\Documents\\Uni\\EE579\\EE579Week1-3\\main.c"
+=======
+      "path": "C:\\Users\\Blair\\Documents\\Uni\\5th Year\\EE579\\TrafficLights\\main.c"
+>>>>>>> 75071ce0b51fb67c1afcea4366407e906b7ee758
     },
     "name": "startAndConfigureFlashing",
     "origin": "project_file",
@@ -21441,7 +21513,11 @@
     "location": {
       "column": "6",
       "line": "16",
+<<<<<<< HEAD
       "path": "C:\\Users\\bmcke\\Documents\\Uni\\EE579\\EE579Week1-3\\main.c"
+=======
+      "path": "C:\\Users\\Blair\\Documents\\Uni\\5th Year\\EE579\\TrafficLights\\main.c"
+>>>>>>> 75071ce0b51fb67c1afcea4366407e906b7ee758
     },
     "name": "driver",
     "origin": "project_file",
@@ -21455,7 +21531,11 @@
     "location": {
       "column": "14",
       "line": "18",
+<<<<<<< HEAD
       "path": "C:\\Users\\bmcke\\Documents\\Uni\\EE579\\EE579Week1-3\\main.c"
+=======
+      "path": "C:\\Users\\Blair\\Documents\\Uni\\5th Year\\EE579\\TrafficLights\\main.c"
+>>>>>>> 75071ce0b51fb67c1afcea4366407e906b7ee758
     },
     "name": "i",
     "origin": "project_file",
@@ -21469,7 +21549,11 @@
     "location": {
       "column": "5",
       "line": "20",
+<<<<<<< HEAD
       "path": "C:\\Users\\bmcke\\Documents\\Uni\\EE579\\EE579Week1-3\\main.c"
+=======
+      "path": "C:\\Users\\Blair\\Documents\\Uni\\5th Year\\EE579\\TrafficLights\\main.c"
+>>>>>>> 75071ce0b51fb67c1afcea4366407e906b7ee758
     },
     "name": "main",
     "origin": "project_file",
@@ -21482,8 +21566,13 @@
     "display": "void driver(void)",
     "location": {
       "column": "6",
+<<<<<<< HEAD
       "line": "30",
       "path": "C:\\Users\\bmcke\\Documents\\Uni\\EE579\\EE579Week1-3\\main.c"
+=======
+      "line": "31",
+      "path": "C:\\Users\\Blair\\Documents\\Uni\\5th Year\\EE579\\TrafficLights\\main.c"
+>>>>>>> 75071ce0b51fb67c1afcea4366407e906b7ee758
     },
     "name": "driver",
     "origin": "project_file",
@@ -21496,8 +21585,13 @@
     "display": "void setUpIO(void)",
     "location": {
       "column": "6",
+<<<<<<< HEAD
       "line": "45",
       "path": "C:\\Users\\bmcke\\Documents\\Uni\\EE579\\EE579Week1-3\\main.c"
+=======
+      "line": "51",
+      "path": "C:\\Users\\Blair\\Documents\\Uni\\5th Year\\EE579\\TrafficLights\\main.c"
+>>>>>>> 75071ce0b51fb67c1afcea4366407e906b7ee758
     },
     "name": "setUpIO",
     "origin": "project_file",
@@ -21510,8 +21604,13 @@
     "display": "void configureTimer(void)",
     "location": {
       "column": "6",
+<<<<<<< HEAD
       "line": "58",
       "path": "C:\\Users\\bmcke\\Documents\\Uni\\EE579\\EE579Week1-3\\main.c"
+=======
+      "line": "60",
+      "path": "C:\\Users\\Blair\\Documents\\Uni\\5th Year\\EE579\\TrafficLights\\main.c"
+>>>>>>> 75071ce0b51fb67c1afcea4366407e906b7ee758
     },
     "name": "configureTimer",
     "origin": "project_file",
@@ -21524,8 +21623,13 @@
     "display": "void startTimer(void)",
     "location": {
       "column": "6",
+<<<<<<< HEAD
       "line": "65",
       "path": "C:\\Users\\bmcke\\Documents\\Uni\\EE579\\EE579Week1-3\\main.c"
+=======
+      "line": "68",
+      "path": "C:\\Users\\Blair\\Documents\\Uni\\5th Year\\EE579\\TrafficLights\\main.c"
+>>>>>>> 75071ce0b51fb67c1afcea4366407e906b7ee758
     },
     "name": "startTimer",
     "origin": "project_file",
@@ -21538,8 +21642,13 @@
     "display": "void startAndConfigureFlashing(void)",
     "location": {
       "column": "6",
+<<<<<<< HEAD
       "line": "69",
       "path": "C:\\Users\\bmcke\\Documents\\Uni\\EE579\\EE579Week1-3\\main.c"
+=======
+      "line": "73",
+      "path": "C:\\Users\\Blair\\Documents\\Uni\\5th Year\\EE579\\TrafficLights\\main.c"
+>>>>>>> 75071ce0b51fb67c1afcea4366407e906b7ee758
     },
     "name": "startAndConfigureFlashing",
     "origin": "project_file",
@@ -21552,8 +21661,13 @@
     "display": "void Timer_A(void)",
     "location": {
       "column": "18",
+<<<<<<< HEAD
       "line": "80",
       "path": "C:\\Users\\bmcke\\Documents\\Uni\\EE579\\EE579Week1-3\\main.c"
+=======
+      "line": "85",
+      "path": "C:\\Users\\Blair\\Documents\\Uni\\5th Year\\EE579\\TrafficLights\\main.c"
+>>>>>>> 75071ce0b51fb67c1afcea4366407e906b7ee758
     },
     "name": "Timer_A",
     "origin": "project_file",
