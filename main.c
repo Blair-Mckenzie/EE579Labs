@@ -99,8 +99,7 @@ void __attribute__((interrupt(TIMER0_A0_VECTOR))) Timer_A(void)
       startAndConfigureFlashing(); // Different timer setup for flashing
     }
     P1OUT ^= LED2; // P1.6 LED on
-    for (i = 0; i < LED_DELAY; i++)
-      ;           // Delay for alternating LEDs
+    for (i = 0; i < LED_DELAY; i++);   // Delay for alternating LEDs
     P2OUT ^= RED; // P2.1 LED on (Red)
   }
   else
