@@ -25,7 +25,7 @@ if not "%~1" == "" goto debugFile
 
 @echo on 
 
-"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.5\common\bin\cspybat" -f "C:\Users\Blair\Documents\Uni\5th Year\EE579\TrafficLights\settings\traffic_lights.Debug.general.xcl" --backend -f "C:\Users\Blair\Documents\Uni\5th Year\EE579\TrafficLights\settings\traffic_lights.Debug.driver.xcl" 
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.5\common\bin\cspybat" -f "C:\Users\bmcke\Documents\Uni\EE579\EE579Week1-3\settings\traffic_lights.Debug.general.xcl" --backend -f "C:\Users\bmcke\Documents\Uni\EE579\EE579Week1-3\settings\traffic_lights.Debug.driver.xcl" 
 
 @echo off 
 goto end 
@@ -34,7 +34,7 @@ goto end
 
 @echo on 
 
-"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.5\common\bin\cspybat" -f "C:\Users\Blair\Documents\Uni\5th Year\EE579\TrafficLights\settings\traffic_lights.Debug.general.xcl" "--debug_file=%~1" --backend -f "C:\Users\Blair\Documents\Uni\5th Year\EE579\TrafficLights\settings\traffic_lights.Debug.driver.xcl" 
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.5\common\bin\cspybat" -f "C:\Users\bmcke\Documents\Uni\EE579\EE579Week1-3\settings\traffic_lights.Debug.general.xcl" "--debug_file=%~1" --backend -f "C:\Users\bmcke\Documents\Uni\EE579\EE579Week1-3\settings\traffic_lights.Debug.driver.xcl" 
 
 @echo off 
 :end

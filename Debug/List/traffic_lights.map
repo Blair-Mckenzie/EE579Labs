@@ -2,7 +2,7 @@
 #                                                                              #
 #      IAR Universal Linker V6.6.2.104                                         #
 #                                                                              #
-#           Link time     =  30/Sep/2021  18:25:15                             #
+#           Link time     =  01/Oct/2021  12:43:29                             #
 #           Target CPU    =  MSP430                                            #
 #           List file     =  C:\Users\bmcke\Documents\Uni\EE579\EE579Week1-3\D #
 #                            ebug\List\traffic_lights.map                      #
@@ -11,7 +11,7 @@
 #                            Format: ubrof10                                   #
 #                            UBROF version 10.0.6                              #
 #                            Using library modules for C-SPY (-rt)             #
-#           Command line  =  -f C:\Users\bmcke\AppData\Local\Temp\EWFAF4.tmp   #
+#           Command line  =  -f C:\Users\bmcke\AppData\Local\Temp\EW6F2E.tmp   #
 #                            (C:\Users\bmcke\Documents\Uni\EE579\EE579Week1-3\ #
 #                            Debug\Obj\main.r43                                #
 #                            -o                                                #

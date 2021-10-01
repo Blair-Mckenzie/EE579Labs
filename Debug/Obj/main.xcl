@@ -1,15 +1,27 @@
+<<<<<<< HEAD
+"C:\Users\bmcke\Documents\Uni\EE579\EE579Week1-3\main.c"
+=======
 "C:\Users\Blair\Documents\Uni\5th Year\EE579\TrafficLights\main.c"
+>>>>>>> 75071ce0b51fb67c1afcea4366407e906b7ee758
 -std=c99
 -ferror-limit=0
 -fbracket-depth=512
 -funsigned-char
 -MD
 -MF
+<<<<<<< HEAD
+C:\Users\bmcke\Documents\Uni\EE579\EE579Week1-3\Debug\Obj\main.pbi.dep
+-o
+main.pbi
+-I
+C:\Users\bmcke\Documents\Uni\EE579\EE579Week1-3
+=======
 C:\Users\Blair\Documents\Uni\5th Year\EE579\TrafficLights\Debug\Obj\main.pbi.dep
 -o
 main.pbi
 -I
 C:\Users\Blair\Documents\Uni\5th Year\EE579\TrafficLights
+>>>>>>> 75071ce0b51fb67c1afcea4366407e906b7ee758
 -I
 C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.5\430\inc\dlib
 -I
