@@ -98,8 +98,8 @@ __interrupt void Timer_A(void)
   }
   else
   {
+    P2OUT &= ~LED3; // P2.1,P2.3,P2.5 LED Off
+    P1OUT &= ~LED2; // P1.6 LED Off
     driver();       // Back to main loop
-//    P2OUT &= ~LED3; // P2.1,P2.3,P2.5 LED Off
-//    P1OUT &= ~LED2; // P1.6 LED Off
   }
 }
