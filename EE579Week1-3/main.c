@@ -80,14 +80,8 @@ void startAndConfigureFlashing(void)
 }
 
 // Timer A0 interrupt service routine
-#if defined(__TI_COMPILER_VERSION__) || defined(__IAR_SYSTEMS_ICC__)
 #pragma vector = TIMER0_A0_VECTOR
 __interrupt void Timer_A(void)
-#elif defined(__GNUC__)
-void __attribute__((interrupt(TIMER0_A0_VECTOR))) Timer_A(void)
-#else
-#error Compiler not supported!
-#endif
 {
   i++;
   if ((P1IN & SWITCH) == 0)
@@ -104,8 +98,8 @@ void __attribute__((interrupt(TIMER0_A0_VECTOR))) Timer_A(void)
   }
   else
   {
-    driver();       // Back to main loop
     P2OUT &= ~LED3; // P2.1,P2.3,P2.5 LED Off
     P1OUT &= ~LED2; // P1.6 LED Off
+    driver();       // Back to main loop
   }
 }
