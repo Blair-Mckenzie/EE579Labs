@@ -3,7 +3,7 @@
 #define LED2  BIT6
 #define SWITCH BIT3
 #define FLASHRATE 384  // 40 flashes/min
-#define WAIT 2560     // 5 seconds
+#define WAIT 15360     // 30 seconds
 
 void startFlashing(void);
 void startTimer(void);
