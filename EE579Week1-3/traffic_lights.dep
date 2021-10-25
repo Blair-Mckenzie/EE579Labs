@@ -5,10 +5,33 @@
     <configuration>
         <name>Debug</name>
         <outputs>
+<<<<<<< HEAD
             <file>$TOOLKIT_DIR$\inc\io430g2553.h</file>
+=======
+<<<<<<< HEAD:traffic_lights.dep
+            <file>$PROJ_DIR$\main.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\main.xcl</file>
+            <file>$PROJ_DIR$\Debug\Exe\traffic_lights.ulp</file>
+            <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
+            <file>$PROJ_DIR$\Debug\List\traffic_lights.map</file>
+            <file>$TOOLKIT_DIR$\inc\io430g2553.h</file>
+            <file>$TOOLKIT_DIR$\lib\dlib\dl430fn.r43</file>
+            <file>$PROJ_DIR$\Debug\Obj\main.__cstat.et</file>
+            <file>$PROJ_DIR$\Debug\Obj\main.r43</file>
+            <file>$TOOLKIT_DIR$\inc\io430.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\traffic_lights.pbd</file>
+            <file>$PROJ_DIR$\Debug\Exe\traffic_lights.d43</file>
+            <file>$TOOLKIT_DIR$\config\linker\lnk430g2553.xcl</file>
+            <file>$PROJ_DIR$\..\testProgram\main.c</file>
+=======
+            <file>$PROJ_DIR$\Debug\Exe\traffic_lights.d43</file>
+            <file>$TOOLKIT_DIR$\lib\dlib\dl430fn.r43</file>
+            <file>$TOOLKIT_DIR$\inc\io430.h</file>
+>>>>>>> ca7e7ad2b7f0ebba95a45527e19e4f2e48d61fe7
             <file>$PROJ_DIR$\Debug\Obj\main.__cstat.et</file>
             <file>$PROJ_DIR$\Debug\Obj\main.xcl</file>
             <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
+<<<<<<< HEAD
             <file>$PROJ_DIR$\main.c</file>
             <file>$PROJ_DIR$\Debug\Exe\traffic_lights.ulp</file>
             <file>$PROJ_DIR$\Debug\Exe\traffic_lights.d43</file>
@@ -17,24 +40,80 @@
             <file>$TOOLKIT_DIR$\lib\dlib\dl430fn.r43</file>
             <file>$TOOLKIT_DIR$\config\linker\lnk430g2553.xcl</file>
             <file>$PROJ_DIR$\Debug\List\traffic_lights.map</file>
+=======
+>>>>>>> 2f141e9705ab20349114db3129d24a157b1da004:EE579Week1-3/traffic_lights.dep
+>>>>>>> ca7e7ad2b7f0ebba95a45527e19e4f2e48d61fe7
         </outputs>
         <file>
             <name>[ROOT_NODE]</name>
             <outputs>
                 <tool>
+<<<<<<< HEAD
                     <name>XLINK</name>
                     <file> 6 11</file>
+=======
+<<<<<<< HEAD:traffic_lights.dep
+                    <name>XLINK</name>
+                    <file> 11 4</file>
                 </tool>
                 <tool>
                     <name>ULP430</name>
+                    <file> 2</file>
+=======
+                    <name>ULP430</name>
+                    <file> 8</file>
+                </tool>
+                <tool>
+                    <name>XLINK</name>
+                    <file> 0 5</file>
+>>>>>>> 2f141e9705ab20349114db3129d24a157b1da004:EE579Week1-3/traffic_lights.dep
+>>>>>>> ca7e7ad2b7f0ebba95a45527e19e4f2e48d61fe7
+                </tool>
+                <tool>
+<<<<<<< HEAD
+                    <name>ULP430</name>
+=======
+<<<<<<< HEAD:traffic_lights.dep
+                    <name>ICC430</name>
+                    <file> 8</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 1</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 7</file>
+=======
+                    <name>XLINK</name>
+>>>>>>> ca7e7ad2b7f0ebba95a45527e19e4f2e48d61fe7
                     <file> 5</file>
+>>>>>>> 2f141e9705ab20349114db3129d24a157b1da004:EE579Week1-3/traffic_lights.dep
                 </tool>
             </outputs>
+<<<<<<< HEAD
+=======
+            <inputs>
+                <tool>
+<<<<<<< HEAD:traffic_lights.dep
+                    <name>ICC430</name>
+                    <file> 9 5 3</file>
+=======
+                    <name>XLINK</name>
+                    <file> 6 7 1</file>
+>>>>>>> 2f141e9705ab20349114db3129d24a157b1da004:EE579Week1-3/traffic_lights.dep
+                </tool>
+            </inputs>
+>>>>>>> ca7e7ad2b7f0ebba95a45527e19e4f2e48d61fe7
         </file>
         <file>
             <name>$PROJ_DIR$\main.c</name>
             <outputs>
                 <tool>
+<<<<<<< HEAD:traffic_lights.dep
+                    <name>XLINK</name>
+                    <file> 4</file>
+=======
                     <name>ICC430</name>
                     <file> 8</file>
                 </tool>
@@ -44,12 +123,22 @@
                 </tool>
                 <tool>
                     <name>__cstat</name>
+<<<<<<< HEAD
                     <file> 1</file>
+=======
+                    <file> 3</file>
+>>>>>>> 2f141e9705ab20349114db3129d24a157b1da004:EE579Week1-3/traffic_lights.dep
+>>>>>>> ca7e7ad2b7f0ebba95a45527e19e4f2e48d61fe7
                 </tool>
             </outputs>
             <inputs>
                 <tool>
+<<<<<<< HEAD:traffic_lights.dep
+                    <name>XLINK</name>
+                    <file> 12 8 6</file>
+=======
                     <name>ICC430</name>
+<<<<<<< HEAD
                     <file> 7 0 3</file>
                 </tool>
             </inputs>
@@ -66,6 +155,10 @@
                 <tool>
                     <name>XLINK</name>
                     <file> 10 8 9</file>
+=======
+                    <file> 2 9 11</file>
+>>>>>>> 2f141e9705ab20349114db3129d24a157b1da004:EE579Week1-3/traffic_lights.dep
+>>>>>>> ca7e7ad2b7f0ebba95a45527e19e4f2e48d61fe7
                 </tool>
             </inputs>
         </file>
