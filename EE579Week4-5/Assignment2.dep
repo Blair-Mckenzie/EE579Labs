@@ -5,30 +5,30 @@
     <configuration>
         <name>Debug</name>
         <outputs>
-            <file>$TOOLKIT_DIR$\inc\io430.h</file>
-            <file>$PROJ_DIR$\Debug\Exe\Assignment2.d43</file>
-            <file>$PROJ_DIR$\Debug\Obj\Assignment2.pbd</file>
-            <file>$PROJ_DIR$\Debug\Obj\main.__cstat.et</file>
-            <file>$TOOLKIT_DIR$\lib\dlib\dl430fn.r43</file>
-            <file>$PROJ_DIR$\Debug\Obj\main.xcl</file>
-            <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
-            <file>$PROJ_DIR$\Debug\List\Assignment2.map</file>
-            <file>$TOOLKIT_DIR$\config\linker\lnk430g2553.xcl</file>
-            <file>$PROJ_DIR$\Debug\Obj\main.r43</file>
-            <file>$PROJ_DIR$\main.c</file>
             <file>$TOOLKIT_DIR$\inc\io430g2553.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\main.xcl</file>
+            <file>$PROJ_DIR$\Debug\Obj\main.__cstat.et</file>
+            <file>$TOOLKIT_DIR$\config\linker\lnk430g2553.xcl</file>
+            <file>$PROJ_DIR$\Debug\Exe\Assignment2.d43</file>
+            <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
+            <file>$PROJ_DIR$\main.c</file>
             <file>$PROJ_DIR$\Debug\Exe\Assignment2.ulp</file>
+            <file>$PROJ_DIR$\Debug\Obj\Assignment2.pbd</file>
+            <file>$TOOLKIT_DIR$\lib\dlib\dl430fn.r43</file>
+            <file>$PROJ_DIR$\Debug\Obj\main.r43</file>
+            <file>$PROJ_DIR$\Debug\List\Assignment2.map</file>
+            <file>$TOOLKIT_DIR$\inc\io430.h</file>
         </outputs>
         <file>
             <name>[ROOT_NODE]</name>
             <outputs>
                 <tool>
-                    <name>ULP430</name>
-                    <file> 12</file>
+                    <name>XLINK</name>
+                    <file> 4 11</file>
                 </tool>
                 <tool>
-                    <name>XLINK</name>
-                    <file> 1 7</file>
+                    <name>ULP430</name>
+                    <file> 7</file>
                 </tool>
             </outputs>
         </file>
@@ -37,13 +37,13 @@
             <outputs>
                 <tool>
                     <name>XLINK</name>
-                    <file> 7</file>
+                    <file> 11</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>XLINK</name>
-                    <file> 8 9 4</file>
+                    <file> 3 10 9</file>
                 </tool>
             </inputs>
         </file>
@@ -52,21 +52,21 @@
             <outputs>
                 <tool>
                     <name>ICC430</name>
-                    <file> 9</file>
+                    <file> 10</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 5</file>
+                    <file> 1</file>
                 </tool>
                 <tool>
                     <name>__cstat</name>
-                    <file> 3</file>
+                    <file> 2</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICC430</name>
-                    <file> 0 11 6</file>
+                    <file> 12 0 5</file>
                 </tool>
             </inputs>
         </file>
