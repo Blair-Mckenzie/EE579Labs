@@ -8,12 +8,12 @@ int main(void)
   ADC10CTL1 = INCH_1;                         // input A1
   ADC10AE0 |= 0x02;                           // PA.1 ADC option select
   P1DIR |= 0x01;                              // Set P1.0 to output direction
-  P2DIR |= 0x30;                              //Set P2.4 and P2.5 to output direction
+  P2DIR |= 0x30;                              // Set P2.4 and P2.5 to output direction
   P2OUT |= 0x20;                              // Start P2.5 High
   P2OUT &= ~0x10;                             // Start P2.4 Low
   CCTL0 = CCIE;                               // Enable CCR0 Interrupt
-  CCR0 = 500;                                 //Toggle every 0.5ms for 1kHz
-  TACTL = TASSEL_2 + MC_1;                    //SMCLK source, Upmode
+  CCR0 = 500;                                 // Toggle every 0.5ms for 1kHz
+  TACTL = TASSEL_2 + MC_1;                    // SMCLK source, Upmode
 //  __bis_SR_register(LPM0_bits + GIE);
 
   for (;;)
