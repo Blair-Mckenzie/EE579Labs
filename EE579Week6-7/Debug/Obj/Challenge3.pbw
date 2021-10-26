@@ -21266,202 +21266,6 @@
     "scope": null
   },
   {
-    "ID": "c:main.c@30@macro@LED2",
-    "What": "MacroDef",
-    "defdec": "Def",
-    "display": "LED2",
-    "location": {
-      "column": "9",
-      "line": "3",
-      "path": "C:\\Users\\Blair\\Documents\\Uni\\5th Year\\EE579\\Assignments\\EE579Week4-5\\main.c"
-    },
-    "name": "LED2",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:main.c@50@macro@SWITCH",
-    "What": "MacroDef",
-    "defdec": "Def",
-    "display": "SWITCH",
-    "location": {
-      "column": "9",
-      "line": "4",
-      "path": "C:\\Users\\Blair\\Documents\\Uni\\5th Year\\EE579\\Assignments\\EE579Week4-5\\main.c"
-    },
-    "name": "SWITCH",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:main.c@71@macro@FLASHRATE",
-    "What": "MacroDef",
-    "defdec": "Def",
-    "display": "FLASHRATE",
-    "location": {
-      "column": "9",
-      "line": "5",
-      "path": "C:\\Users\\Blair\\Documents\\Uni\\5th Year\\EE579\\Assignments\\EE579Week4-5\\main.c"
-    },
-    "name": "FLASHRATE",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:main.c@113@macro@WAIT",
-    "What": "MacroDef",
-    "defdec": "Def",
-    "display": "WAIT",
-    "location": {
-      "column": "9",
-      "line": "6",
-      "path": "C:\\Users\\Blair\\Documents\\Uni\\5th Year\\EE579\\Assignments\\EE579Week4-5\\main.c"
-    },
-    "name": "WAIT",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@startFlashing",
-    "What": "Function",
-    "defdec": "Dec",
-    "display": "void startFlashing(void)",
-    "location": {
-      "column": "6",
-      "line": "8",
-      "path": "C:\\Users\\Blair\\Documents\\Uni\\5th Year\\EE579\\Assignments\\EE579Week4-5\\main.c"
-    },
-    "name": "startFlashing",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@startTimer",
-    "What": "Function",
-    "defdec": "Dec",
-    "display": "void startTimer(void)",
-    "location": {
-      "column": "6",
-      "line": "9",
-      "path": "C:\\Users\\Blair\\Documents\\Uni\\5th Year\\EE579\\Assignments\\EE579Week4-5\\main.c"
-    },
-    "name": "startTimer",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@setUpIO",
-    "What": "Function",
-    "defdec": "Dec",
-    "display": "void setUpIO(void)",
-    "location": {
-      "column": "6",
-      "line": "10",
-      "path": "C:\\Users\\Blair\\Documents\\Uni\\5th Year\\EE579\\Assignments\\EE579Week4-5\\main.c"
-    },
-    "name": "setUpIO",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@main",
-    "What": "Function",
-    "defdec": "Def",
-    "display": "int main(void)",
-    "location": {
-      "column": "5",
-      "line": "13",
-      "path": "C:\\Users\\Blair\\Documents\\Uni\\5th Year\\EE579\\Assignments\\EE579Week4-5\\main.c"
-    },
-    "name": "main",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@setUpIO",
-    "What": "Function",
-    "defdec": "Def",
-    "display": "void setUpIO(void)",
-    "location": {
-      "column": "6",
-      "line": "22",
-      "path": "C:\\Users\\Blair\\Documents\\Uni\\5th Year\\EE579\\Assignments\\EE579Week4-5\\main.c"
-    },
-    "name": "setUpIO",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@startFlashing",
-    "What": "Function",
-    "defdec": "Def",
-    "display": "void startFlashing(void)",
-    "location": {
-      "column": "6",
-      "line": "34",
-      "path": "C:\\Users\\Blair\\Documents\\Uni\\5th Year\\EE579\\Assignments\\EE579Week4-5\\main.c"
-    },
-    "name": "startFlashing",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@startTimer",
-    "What": "Function",
-    "defdec": "Def",
-    "display": "void startTimer(void)",
-    "location": {
-      "column": "6",
-      "line": "43",
-      "path": "C:\\Users\\Blair\\Documents\\Uni\\5th Year\\EE579\\Assignments\\EE579Week4-5\\main.c"
-    },
-    "name": "startTimer",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@Timer_A",
-    "What": "Function",
-    "defdec": "Def",
-    "display": "void Timer_A(void)",
-    "location": {
-      "column": "18",
-      "line": "52",
-      "path": "C:\\Users\\Blair\\Documents\\Uni\\5th Year\\EE579\\Assignments\\EE579Week4-5\\main.c"
-    },
-    "name": "Timer_A",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@Port1_ISR",
-    "What": "Function",
-    "defdec": "Def",
-    "display": "void Port1_ISR(void)",
-    "location": {
-      "column": "18",
-      "line": "67",
-      "path": "C:\\Users\\Blair\\Documents\\Uni\\5th Year\\EE579\\Assignments\\EE579Week4-5\\main.c"
-    },
-    "name": "Port1_ISR",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@WDT_ISR",
-    "What": "Function",
-    "defdec": "Def",
-    "display": "void WDT_ISR(void)",
-    "location": {
-      "column": "18",
-      "line": "79",
-      "path": "C:\\Users\\Blair\\Documents\\Uni\\5th Year\\EE579\\Assignments\\EE579Week4-5\\main.c"
-    },
-    "name": "WDT_ISR",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
     "ID": "c:intrinsics.h@287@macro@__INTRINSICS_H",
     "What": "MacroDef",
     "defdec": "Def",
@@ -22411,6 +22215,48 @@
     },
     "name": "__io430",
     "origin": "system_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@main",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "int main(void)",
+    "location": {
+      "column": "5",
+      "line": "4",
+      "path": "C:\\Users\\Blair\\Documents\\Uni\\5th Year\\EE579\\Assignments\\EE579Week6-7\\main.c"
+    },
+    "name": "main",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@ADC10_ISR",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void ADC10_ISR(void)",
+    "location": {
+      "column": "18",
+      "line": "32",
+      "path": "C:\\Users\\Blair\\Documents\\Uni\\5th Year\\EE579\\Assignments\\EE579Week6-7\\main.c"
+    },
+    "name": "ADC10_ISR",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@Timer_A",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void Timer_A(void)",
+    "location": {
+      "column": "18",
+      "line": "38",
+      "path": "C:\\Users\\Blair\\Documents\\Uni\\5th Year\\EE579\\Assignments\\EE579Week6-7\\main.c"
+    },
+    "name": "Timer_A",
+    "origin": "project_file",
     "scope": null
   }
 ]

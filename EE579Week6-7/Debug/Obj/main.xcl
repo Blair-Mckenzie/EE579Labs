@@ -1,15 +1,15 @@
-"C:\Users\Blair\Documents\Uni\5th Year\EE579\Assignments\EE579Week4-5\main.c"
+"C:\Users\Blair\Documents\Uni\5th Year\EE579\Assignments\EE579Week6-7\main.c"
 -std=c99
 -ferror-limit=0
 -fbracket-depth=512
 -funsigned-char
 -MD
 -MF
-C:\Users\Blair\Documents\Uni\5th Year\EE579\Assignments\EE579Week4-5\Debug\Obj\main.pbi.dep
+C:\Users\Blair\Documents\Uni\5th Year\EE579\Assignments\EE579Week6-7\Debug\Obj\main.pbi.dep
 -o
 main.pbi
 -I
-C:\Users\Blair\Documents\Uni\5th Year\EE579\Assignments\EE579Week4-5
+C:\Users\Blair\Documents\Uni\5th Year\EE579\Assignments\EE579Week6-7
 -I
 C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.5\430\inc\dlib
 -I

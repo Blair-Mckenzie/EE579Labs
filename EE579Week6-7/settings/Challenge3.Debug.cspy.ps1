@@ -23,9 +23,9 @@
 
 if ($debugfile -eq "")
 {
-& "C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.5\common\bin\cspybat" -f "C:\Users\Blair\Documents\Uni\5th Year\EE579\Assignments\EE579Week4-5\settings\Assignment2.Debug.general.xcl" --backend -f "C:\Users\Blair\Documents\Uni\5th Year\EE579\Assignments\EE579Week4-5\settings\Assignment2.Debug.driver.xcl" 
+& "C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.5\common\bin\cspybat" -f "C:\Users\Blair\Documents\Uni\5th Year\EE579\Assignments\EE579Week6-7\settings\Challenge3.Debug.general.xcl" --backend -f "C:\Users\Blair\Documents\Uni\5th Year\EE579\Assignments\EE579Week6-7\settings\Challenge3.Debug.driver.xcl" 
 }
 else
 {
-& "C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.5\common\bin\cspybat" -f "C:\Users\Blair\Documents\Uni\5th Year\EE579\Assignments\EE579Week4-5\settings\Assignment2.Debug.general.xcl" --debug_file=$debugfile --backend -f "C:\Users\Blair\Documents\Uni\5th Year\EE579\Assignments\EE579Week4-5\settings\Assignment2.Debug.driver.xcl" 
+& "C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.5\common\bin\cspybat" -f "C:\Users\Blair\Documents\Uni\5th Year\EE579\Assignments\EE579Week6-7\settings\Challenge3.Debug.general.xcl" --debug_file=$debugfile --backend -f "C:\Users\Blair\Documents\Uni\5th Year\EE579\Assignments\EE579Week6-7\settings\Challenge3.Debug.driver.xcl" 
 }
