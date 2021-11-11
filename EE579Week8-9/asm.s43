@@ -1,0 +1,40 @@
+#include "msp430.h"                     ; #define controlled include file
+
+        NAME    main                    ; module name
+
+        PUBLIC  main                    ; make the main label vissible
+                                        ; outside this module
+        ORG     0FFFEh
+        DC16    init                    ; set reset vector to 'init' label
+        RSEG DATA16_C
+        SWITCH: DS16 0x08               ;Switch constant used for P1.3 
+        BUZZEROUT: DS16 0x30            ;Buzzerout constant used for P2.4,P2.5
+        FREQOFFSET: DS16 50             ;Freqoffset constant of 50
+        
+        RSEG DATA16_N
+        count: DS16 1                   ;count varible for program
+        freq1: DS16 1                   ;first default frequency
+        freq2: DS16 1                   ;second default frequency
+        currentFreq: DS8 1              ;boolean to check current Freq
+        
+        RSEG    CSTACK                  ; pre-declaration of segment
+
+        RSEG    CODE
+ADC_init:
+        BIS.W #(ADCSHT_2 | ADCON), &ADCCTL0     ; ADCON, S&H=16 ADC clks
+        BIS.W #ADCINCH_1, &ADCMCTL1             ; A1 ADC input select; Vref=AVCC
+        BIS.W #0x01, &ADC10AE0 
+        RETI
+        
+        RSEG    CODE                    ; place program in 'CODE' segment
+IO_init:
+        BIS.B (P2DIR | BUZZEROUT), &P2DIR
+        
+
+init:   MOV     #SFE(CSTACK), SP        ; set up stack
+
+main:   NOP                             ; main program
+        MOV.W   #WDTPW+WDTHOLD,&WDTCTL  ; Stop watchdog timer
+        JMP $                           ; jump to current location '$'
+                                        ; (endless loop)
+        END
