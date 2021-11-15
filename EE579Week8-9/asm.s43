@@ -1,40 +1,112 @@
-#include "msp430.h"                     ; #define controlled include file
+#include "msp430.h"                                             ; #define controlled include file
 
-        NAME    main                    ; module name
+        NAME    main                                            ; module name
 
-        PUBLIC  main                    ; make the main label vissible
-                                        ; outside this module
-        ORG     0FFFEh
-        DC16    init                    ; set reset vector to 'init' label
-        RSEG DATA16_C
-        SWITCH: DS16 0x08               ;Switch constant used for P1.3 
-        BUZZEROUT: DS16 0x30            ;Buzzerout constant used for P2.4,P2.5
-        FREQOFFSET: DS16 50             ;Freqoffset constant of 50
-        
+        PUBLIC  main                                            ; make the main label vissible
+                                                                ; outside this module
         RSEG DATA16_N
-        count: DS16 1                   ;count varible for program
-        freq1: DS16 1                   ;first default frequency
-        freq2: DS16 1                   ;second default frequency
-        currentFreq: DS8 1              ;boolean to check current Freq
-        
-        RSEG    CSTACK                  ; pre-declaration of segment
-
+        count: DS16 1                                           ;Count varible for program
+        freq1: DS16 1                                           ;First default frequency
+        freq2: DS16 1                                           ;Second default frequency
+        currentFreq: DS16 1                                     ;Boolean to check current Freq
+    
+        RSEG    CSTACK                                          ; pre-declaration of segment
         RSEG    CODE
-ADC_init:
-        BIS.W #(ADCSHT_2 | ADCON), &ADCCTL0     ; ADCON, S&H=16 ADC clks
-        BIS.W #ADCINCH_1, &ADCMCTL1             ; A1 ADC input select; Vref=AVCC
-        BIS.W #0x01, &ADC10AE0 
+
+init:   MOV     #SFE(CSTACK), SP                                ; set up stack
+
+main:                                                           ; main program
+        MOV.W   #WDTPW+WDTHOLD,&WDTCTL                          ; Stop watchdog timer
+        MOV.W #0, &count                                        ; Initialise counter
+        MOV.W #2EEh, &freq1                                     ; Initialise freq1 (750)
+        MOV.W #5DCh, &freq2                                     ; Initialise freq2 (1500)
+        MOV.W #0, &currentFreq                                  ; Initialise freq1
+        MOV.W #ADC10SHT_2+ADC10ON+ADC10IE, &ADC10CTL0           ; ADCON, 16x, enable int.
+        MOV.W #INCH_1, &ADC10CTL1                               ; Input A1
+        BIS.B #02h,&ADC10AE0                                    ; P1.1 ADC10 option select
+        BIS.B #30h, &P2DIR                                      ; Set P2.4, P2.5 outputs
+        BIS.B #20h, &P2OUT                                      ; Start P2.5 High
+        BIC.B #10h, &P2OUT                                      ; Start P2.4 Low
+        BIS.B #40h, &P1DIR                                      ; Set P1.6/LED to Output direction
+        BIC.B #40h, &P1OUT                                      ; Start P1.6/LED Low
+        BIS.B #08h, &P1REN                                      ; Enable pullup/pulldown resistors for P1.3
+        BIS.B #08h, &P1OUT                                      ; Set P1.3 to have pull up resistors
+        BIS.B #08h, &P1IE                                       ; Enable interrupt on P1.3
+        BIS.B #08h, &P1IES                                      ; Set interrupt flag on the falling edge of logic level on P1.3
+        MOV.W #CCIE, &CCTL0                                     ; TACCR0 toggle, interrupt enabled
+        MOV.W #7A12h, &CCR0                                     ; Set CCR0 to trigger every 0.25 seconds
+        MOV.W #TASSEL_2+MC_1+ID_3, &TACTL                       ; SMCLK, Upmode, Divider of 8
+        BIS.W   #CPUOFF+GIE,SR                                  ; Enter LPM0 w/ interrupt        
+        NOP
+        RSEG    CODE
+Int_ADC:                                                        ; Interrupt routine for ADC
+        BIC.W   #CPUOFF,0(SP)                                   ; Clear CPUOFF bit from 0(SR)
         RETI
         
-        RSEG    CODE                    ; place program in 'CODE' segment
-IO_init:
-        BIS.B (P2DIR | BUZZEROUT), &P2DIR
+        RSEG    CODE
+Int_Timer:
+        BIS.W #ENC+ADC10SC,&ADC10CTL0                           ; Start sampling/conversion
+        ADD.W CCR0, count                                       ; count +=CCR0
+        MOV.W count, &count                                     ;
+        XOR.B #30h, &P2OUT                                      ; Toggle P2.4,P2.5 
+        CMP.W #7A12h, count                                     ; If count >31250 jump to label CountGreater
+        JGE CountGreater
+        RETI                                                    ; Return from interrupt
+CountGreater:
+        MOV.B #0, &count                                        ; Set count to 0
+        MOV.B P1IN ,R4                                          ; Load P1IN into R4
+        MOV.B #40h, R5                                          ; Load BIT6 (P1.6) into R5
+        AND.B R4, R5                                            ; AND R4,R5 - result in R5
+        CMP.B #0, R5                                            ; Check if the LED is on (button state)
+        JEQ LEDIsOn                                             ; Jump if (P1IN & BIT6) == 0
+        INC.W &ADC10MEM                                         ; Else increment ADCMEM
+        MOV.W &ADC10MEM, &freq2                                 ; Assign increment to freq2
+        JMP CheckFreq                                      
+LEDIsOn:
+        INC.W &ADC10MEM                                         ; Increment ADCMEM                          
+        MOV.W &ADC10MEM, &freq1                                 ; Assign increment to freq1
+        JMP CheckFreq
+CheckFreq:
+        CMP.B #0, &currentFreq                                  ; Check if currentFreq ==0
+        JEQ currentFreq0                                        ; Jump if true
+        MOV.B #0, &currentFreq                                  ; Else set currentFreq to 0
+        MOV.W #freq1, &CCR0                                     ; Set CCR0 to freq1
+        RETI
+currentFreq0:
+        MOV.B #1, &currentFreq                                  ; Set currentFreq to 1
+        MOV.W #freq2, &CCR0                                     ; Set CCR0 to freq2
+        RETI
+        
+        RSEG    CODE
+Int_Switch:
+        BIC.B #8h, &P1IFG                                       ; Clear the interrupt flag for the switch
+        BIC.B #8h, &P1IE                                        ; Disable Button interrupt
+        MOV.W #WDT_MDLY_32, &WDTCTL                             ; Start and set watchdog timer (WDT) to trigger every 32ms
+        BIC.B #WDTIFG, &IFG1                                    ; Clear the interrupt flag for the WDT
+        BIS.B #WDTIE, &IE1                                      ; Enable WDT interrupt
+        XOR.B #40h, &P1OUT                                      ; Toggle P1.6/LED
+        RETI
+        
+        RSEG    CODE
+Int_Watchdog:
+        BIC.B #WDTIE, &IE1                                      ; disable Watchdog timer (WDT) interrupt
+        BIC.B #WDTIFG, &IFG1                                    ; clear WDT interrupt flag
+        MOV.W #WDTPW+WDTHOLD,&WDTCTL                            ; Stop watchdog timer
+        BIS.B #8h, &P1OUT                                       ; Enable interrupts for the switch
+        RETI
         
 
-init:   MOV     #SFE(CSTACK), SP        ; set up stack
+;=============== Interrupt vectors
+        COMMON INTVEC
+        ORG ADC10_VECTOR                                        ; Interrupt vector for ADC
+        DC16 Int_ADC                                            ; Point to the interrupt routine
+        ORG TIMER0_A0_VECTOR                                    ; Interrupt vector for Timer A0
+        DC16 Int_Timer                                          ; Point to the interrupt routine
+        ORG PORT1_VECTOR                                        ; Interrupt vector for Port 1
+        DC16 Int_Switch                                         ; Point to the interrupt routine
+        ORG WDT_VECTOR                                          ; Interrupt vector for Watchdog timer
+        DC16 Int_Watchdog                                       ; Point to the interrupt routine
+        ORG RESET_VECTOR
+        DC16    init                                            
 
-main:   NOP                             ; main program
-        MOV.W   #WDTPW+WDTHOLD,&WDTCTL  ; Stop watchdog timer
-        JMP $                           ; jump to current location '$'
-                                        ; (endless loop)
         END
