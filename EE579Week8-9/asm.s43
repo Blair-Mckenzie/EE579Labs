@@ -21,64 +21,66 @@ main:                                                           ; main program
         MOV.W #2EEh, &freq1                                     ; Initialise freq1 (750)
         MOV.W #5DCh, &freq2                                     ; Initialise freq2 (1500)
         MOV.W #0, &currentFreq                                  ; Initialise freq1
-        MOV.W #1018, &0x1b0                                     ; ADCON, 16x, enable int.
-        MOV.W #0x1000, &0x1b2                                   ; Input A1
-        BIS.B #0x2,&0x4a                                        ; P1.1 ADC10 option select
+        MOV.W #ADC10SHT_2+ADC10ON+ADC10IE, &ADC10CTL0           ; ADCON, 16x, enable int.
+        MOV.W #INCH_1, &ADC10CTL1                               ; Input A1
+        BIS.B #0x2,&ADC10AE0                                    ; P1.1 ADC10 option select
         BIS.B #0x30, &P2DIR                                     ; Set P2.4, P2.5 outputs
         BIS.B #0x20, &P2OUT                                     ; Start P2.5 High
         BIC.B #0x10, &P2OUT                                     ; Start P2.4 Low
         BIS.B #0x40, &P1DIR                                     ; Set P1.6/LED to Output direction
         BIC.B #0x40, &P1OUT                                     ; Start P1.6/LED Low
-        BIS.B #0x8, &0x27                                       ; Enable pullup/pulldown resistors for P1.3
-        BIS.B #0x8, &0x21                                       ; Set P1.3 to have pull up resistors
-        BIS.B #0x8, &0x25                                       ; Enable interrupt on P1.3
-        BIS.B #0x8, &0x24                                       ; Set interrupt flag on the falling edge of logic level on P1.3
-        MOV.W #0x10, &0x162                                     ; TACCR0 toggle, interrupt enabled
-        MOV.W #7A12h, &0x172                                    ; Set CCR0 to trigger every 0.25 seconds
-        MOV.W #0x2d0, &0x160                                    ; SMCLK, Upmode, Divider of 8
-        BIS.W   #0x18,SR                                        ; Enter LPM0 w/ interrupt        
+        BIS.B #0x8, &P1REN                                      ; Enable pullup/pulldown resistors for P1.3
+        BIS.B #0x8, &P1OUT                                      ; Set P1.3 to have pull up resistors
+        BIS.B #0x8, &P1IE                                       ; Enable interrupt on P1.3
+        BIS.B #0x8, &P1IES                                      ; Set interrupt flag on the falling edge of logic level on P1.3
+        MOV.W #0x10, &TACCTL0                                   ; TACCR0 toggle, interrupt enabled
+        MOV.W #0x7A12, &CCR0                                    ; Set CCR0 to trigger every 0.25 seconds
+        MOV.W #0x2D0, &TACTL                                    ; SMCLK, Upmode, Divider of 8
+        BIS.W #0x18,SR                                          ; Enter LPM0 w/ interrupt        
         NOP
+loop:
+        JMP loop
         RSEG    CODE
 Int_ADC:                                                        ; Interrupt routine for ADC
         BIC.W   #0x10,0(SP)                                     ; Clear CPUOFF bit from 0(SR)
         RETI
         
         RSEG    CODE
-Int_Timer
-        PUSH.W R15
+Int_Timer:
+        PUSH.W R15                                              ; Push register onto stack
         BIS.W #ENC+ADC10SC,&ADC10CTL0                           ; Start sampling/conversion
-        ADD.W &0172, &count                                     ; count +=CCR0
-        CMP.W #7A12h, &count                                    ; If count >31250 jump to label CountGreater
+        ADD.W &CCR0, &count                                     ; count +=CCR0
+        CMP.W #0x7A12, &count                                   ; If count <31250 jump to label Timer_A_1
         JL Timer_A_1
-        MOV.W #0x0, &count
-        BIT.B #0x40, &0x20
-        JC Timer_A_2
-        MOV.W &0x1b4, R15
-        CLRC
-        RRC.W R15
-        RRA.W R15
-        ADD.W #0x32, R15
-        MOV.W R15, &freq1
+        MOV.W #0x0, &count                                      ; If true, set count to 0 
+        BIT.B #0x40, &P1IN                                      ; BIT6 AND P1IN
+        JC Timer_A_2                                            ; Jump if LED is on 
+        MOV.W &ADC10MEM, R15                                    ; Move ADC result to R15
+        ;CLRC                                                   
+        ;RRC.W R15
+        ;RRA.W R15
+        ADD.W #0x1, R15                                         ; ADC10MEM +1
+        MOV.W R15, &freq2                                       ; freq1 = ADC10MEM + 1 
         JMP Timer_A_0
 Timer_A_2:
-        MOV.W &0x1b4, R15
-        CLRC
-        RRC.W R15
-        RRA.W R15
-        ADD.W #0x32, R15
-        MOV.W R15, &freq2
+        MOV.W &ADC10MEM, R15                                    ; Move ADC result to R15
+        ;CLRC
+        ;RRC.W R15
+        ;RRA.W R15
+        ADD.W #0x1, R15                                         ; ADC10MEM +1
+        MOV.W R15, &freq1                                       ; freq2 = ADC10MEM + 1 
 Timer_A_0:
-        CMP.W #0x0, &currentFreq
-        JNE Timer_A_3
-        MOV.W #0x1, &currentFreq
-        MOV.W &freq2, &0x172
-        JMP Timer_A_1
+        CMP.W #0x0, &currentFreq                                ; Check if currentFreq ==0
+        JNE Timer_A_3                                           ; Jump to label Timer_A_3 if not equal
+        MOV.W #0x1, &currentFreq                                ; If true set currentFreq to 1
+        MOV.W &freq2, &CCR0                                     ; Set CCR0 to freq2
+        JMP Timer_A_1                                           ; Jump to label Timer_A_1 regardless
 Timer_A_3:
-        MOV.W #0x0, &currentFreq
-        MOV.W &freq1, &0x172
+        MOV.W #0x0, &currentFreq                                ; Set currentFreq to 0
+        MOV.W &freq1, &CCR0                                     ; Set CCR0 to freq1
 Timer_A_1:
-        XOR.B #0x30, &0x29                                      ; Toggle P2.4,P2.5 
-        POP.W R15
+        XOR.B #0x30, &P2OUT                                     ; Toggle P2.4,P2.5                                      
+        POP.W R15                                               ; Pop register from stack
         RETI                                                    ; Return from interrupt
         
         RSEG    CODE
@@ -96,7 +98,7 @@ Int_Watchdog:
         BIC.B #0x1, &IE1                                        ; disable Watchdog timer (WDT) interrupt
         BIC.B #0x1, &IFG1                                       ; clear WDT interrupt flag
         MOV.W #WDTPW+WDTHOLD,&WDTCTL                            ; Stop watchdog timer
-        BIS.B #0x8, &P1OUT                                      ; Enable interrupts for the switch
+        BIS.B #0x8, &P1IE                                       ; Enable interrupts for the switch
         RETI
         
 
