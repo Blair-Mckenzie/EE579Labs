@@ -1,0 +1,590 @@
+################################################################################
+#                                                                              #
+#      IAR Universal Linker V6.6.2.104                                         #
+#                                                                              #
+#           Link time     =  17/Nov/2021  15:45:04                             #
+#           Target CPU    =  MSP430                                            #
+#           List file     =  C:\Users\bmcke\Documents\Uni\EE579\EE579Week10-11 #
+#                            \Debug\List\Challenge5.map                        #
+#           Output file 1 =  C:\Users\bmcke\Documents\Uni\EE579\EE579Week10-11 #
+#                            \Debug\Exe\Challenge5.d43                         #
+#                            Format: ubrof10                                   #
+#                            UBROF version 10.0.6                              #
+#                            Using library modules for C-SPY (-rt)             #
+#           Command line  =  -f C:\Users\bmcke\AppData\Local\Temp\EWE414.tmp   #
+#                            (C:\Users\bmcke\Documents\Uni\EE579\EE579Week10-1 #
+#                            1\Debug\Obj\main.r43                              #
+#                            -o                                                #
+#                            C:\Users\bmcke\Documents\Uni\EE579\EE579Week10-11 #
+#                            \Debug\Exe\Challenge5.d43                         #
+#                            -l                                                #
+#                            C:\Users\bmcke\Documents\Uni\EE579\EE579Week10-11 #
+#                            \Debug\List\Challenge5.map                        #
+#                            -xms                                              #
+#                            "-IC:\Program Files (x86)\IAR Systems\Embedded Wo #
+#                            rkbench 8.5\430\LIB\\"                            #
+#                            -f                                                #
+#                            "C:\Program Files (x86)\IAR Systems\Embedded Work #
+#                            bench 8.5\430\config\linker\lnk430g2553.xcl"      #
+#                            (-cmsp430 -QCODE_I=CODE_ID -QTLS16_I=TLS16_ID     #
+#                            -Z(CONST)INFO=1000-10FF                           #
+#                            -Z(CONST)INFOA=10C0-10FF                          #
+#                            -Z(CONST)INFOB=1080-10BF                          #
+#                            -Z(CONST)INFOC=1040-107F                          #
+#                            -Z(CONST)INFOD=1000-103F                          #
+#                            -Z(DATA)DATA16_I,DATA16_Z,DATA16_N,TLS16_I=0200-0 #
+#                            3FF                                               #
+#                            -Z(DATA)DATA16_HEAP+_DATA16_HEAP_SIZE             #
+#                            -Z(DATA)CODE_I -Z(DATA)CSTACK+_STACK_SIZE#        #
+#                            -Z(CONST)DATA16_C,DATA16_ID,TLS16_ID,DIFUNCT,CHEC #
+#                            KSUM=C000-FFDD                                    #
+#                            -Z(CODE)CSTART,ISR_CODE,CODE_ID=C000-FFDD         #
+#                            -P(CODE)CODE=C000-FFDD                            #
+#                            -Z(CONST)SIGNATURE=FFDE-FFDF                      #
+#                            -Z(CODE)INTVEC=FFE0-FFFF                          #
+#                            -Z(CODE)RESET=FFFE-FFFF) -D_STACK_SIZE=50 -rt     #
+#                            "C:\Program Files (x86)\IAR Systems\Embedded Work #
+#                            bench 8.5\430\lib\dlib\dl430fn.r43"               #
+#                            -e_PrintfLarge=_Printf -e_ScanfLarge=_Scanf       #
+#                            -D_DATA16_HEAP_SIZE=50 -s __program_start         #
+#                            -D_DATA20_HEAP_SIZE=50)                           #
+#                                                                              #
+#                           Copyright (C) 1987-2019 IAR Systems AB.            #
+################################################################################
+
+
+
+
+
+                ****************************************
+                *                                      *
+                *           CROSS REFERENCE            *
+                *                                      *
+                ****************************************
+
+       Program entry at :           C004  Relocatable, from module : ?cstart
+
+
+
+
+                ****************************************
+                *                                      *
+                *            RUNTIME MODEL             *
+                *                                      *
+                ****************************************
+
+  __Heap_Handler             = Basic
+  __SystemLibrary            = DLib
+  __core                     = 430
+  __dlib_file_descriptor     = 0
+  __dlib_full_locale_support = 0
+  __double_size              = 32
+  __pic                      = no
+  __reg_r4                   = free
+  __reg_r5                   = free
+  __rt_version               = 3
+
+                ****************************************
+                *                                      *
+                *    AUTOMATIC SYMBOL REDIRECTIONS     *
+                *                                      *
+                ****************************************
+
+                  There are no automatic symbol redirections.
+
+
+
+                ****************************************
+                *                                      *
+                *              MODULE MAP              *
+                *                                      *
+                ****************************************
+
+
+  DEFINED ABSOLUTE ENTRIES
+    *************************************************************************
+
+  DEFINED ABSOLUTE ENTRIES
+  PROGRAM MODULE, NAME : ?ABS_ENTRY_MOD
+
+Absolute parts
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _DATA20_HEAP_SIZE       0050 
+           _DATA16_HEAP_SIZE       0050 
+           _STACK_SIZE             0050 
+    *************************************************************************
+
+  FILE NAME : C:\Users\bmcke\Documents\Uni\EE579\EE579Week10-11\Debug\Obj\main.r43
+  PROGRAM MODULE, NAME : main
+
+  SEGMENTS IN THE MODULE
+  ======================
+DATA16_AN
+  Relative segment, address: 0000 - 0000 (0x1 bytes), align: 0
+  Segment part 1. ROOT        Intra module refs:   Port1_ISR
+                                                   WDT_ISR
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_IE1                  0000 
+           LOCAL                   ADDRESS         
+           =====                   =======         
+           IE1                     0000 
+           IE1_bit                 0000 
+    -------------------------------------------------------------------------
+DATA16_AN
+  Relative segment, address: 0002 - 0002 (0x1 bytes), align: 0
+  Segment part 2. ROOT        Intra module refs:   Port1_ISR
+                                                   WDT_ISR
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_IFG1                 0002 
+           LOCAL                   ADDRESS         
+           =====                   =======         
+           IFG1                    0002 
+           IFG1_bit                0002 
+    -------------------------------------------------------------------------
+DATA16_AN
+  Relative segment, address: 0021 - 0021 (0x1 bytes), align: 0
+  Segment part 3. ROOT        Intra module refs:   IO_init
+                                                   Port1_ISR
+                                                   switch_init
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_P1OUT                0021 
+           LOCAL                   ADDRESS         
+           =====                   =======         
+           P1OUT                   0021 
+           P1OUT_bit               0021 
+    -------------------------------------------------------------------------
+DATA16_AN
+  Relative segment, address: 0022 - 0022 (0x1 bytes), align: 0
+  Segment part 4. ROOT        Intra module refs:   IO_init
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_P1DIR                0022 
+           LOCAL                   ADDRESS         
+           =====                   =======         
+           P1DIR                   0022 
+           P1DIR_bit               0022 
+    -------------------------------------------------------------------------
+DATA16_AN
+  Relative segment, address: 0023 - 0023 (0x1 bytes), align: 0
+  Segment part 5. ROOT        Intra module refs:   Port1_ISR
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_P1IFG                0023 
+           LOCAL                   ADDRESS         
+           =====                   =======         
+           P1IFG                   0023 
+           P1IFG_bit               0023 
+    -------------------------------------------------------------------------
+DATA16_AN
+  Relative segment, address: 0024 - 0024 (0x1 bytes), align: 0
+  Segment part 6. ROOT        Intra module refs:   switch_init
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_P1IES                0024 
+           LOCAL                   ADDRESS         
+           =====                   =======         
+           P1IES                   0024 
+           P1IES_bit               0024 
+    -------------------------------------------------------------------------
+DATA16_AN
+  Relative segment, address: 0025 - 0025 (0x1 bytes), align: 0
+  Segment part 7. ROOT        Intra module refs:   Port1_ISR
+                                                   WDT_ISR
+                                                   switch_init
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_P1IE                 0025 
+           LOCAL                   ADDRESS         
+           =====                   =======         
+           P1IE                    0025 
+           P1IE_bit                0025 
+    -------------------------------------------------------------------------
+DATA16_AN
+  Relative segment, address: 0027 - 0027 (0x1 bytes), align: 0
+  Segment part 8. ROOT        Intra module refs:   switch_init
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_P1REN                0027 
+           LOCAL                   ADDRESS         
+           =====                   =======         
+           P1REN                   0027 
+           P1REN_bit               0027 
+    -------------------------------------------------------------------------
+DATA16_AN
+  Relative segment, address: 0029 - 0029 (0x1 bytes), align: 0
+  Segment part 9. ROOT        Intra module refs:   IO_init
+                                                   Timer_A
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_P2OUT                0029 
+           LOCAL                   ADDRESS         
+           =====                   =======         
+           P2OUT                   0029 
+           P2OUT_bit               0029 
+    -------------------------------------------------------------------------
+DATA16_AN
+  Relative segment, address: 002A - 002A (0x1 bytes), align: 0
+  Segment part 10. ROOT       Intra module refs:   IO_init
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_P2DIR                002A 
+           LOCAL                   ADDRESS         
+           =====                   =======         
+           P2DIR                   002A 
+           P2DIR_bit               002A 
+    -------------------------------------------------------------------------
+DATA16_AN
+  Relative segment, address: 0160 - 0161 (0x2 bytes), align: 0
+  Segment part 11. ROOT       Intra module refs:   timer_init
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_TA0CTL               0160 
+           LOCAL                   ADDRESS         
+           =====                   =======         
+           TA0CTL                  0160 
+           TA0CTL_bit              0160 
+    -------------------------------------------------------------------------
+DATA16_AN
+  Relative segment, address: 0162 - 0163 (0x2 bytes), align: 0
+  Segment part 12. ROOT       Intra module refs:   timer_init
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_TA0CCTL0             0162 
+           LOCAL                   ADDRESS         
+           =====                   =======         
+           TA0CCTL0                0162 
+           TA0CCTL0_bit            0162 
+    -------------------------------------------------------------------------
+DATA16_AN
+  Relative segment, address: 0172 - 0173 (0x2 bytes), align: 0
+  Segment part 13. ROOT       Intra module refs:   Timer_A
+                                                   timer_init
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           TA0CCR0                 0172 
+    -------------------------------------------------------------------------
+DATA16_AN
+  Relative segment, address: 0120 - 0121 (0x2 bytes), align: 0
+  Segment part 14. ROOT       Intra module refs:   Port1_ISR
+                                                   WDT_ISR
+                                                   main
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_WDTCTL               0120 
+           LOCAL                   ADDRESS         
+           =====                   =======         
+           WDTCTL                  0120 
+           WDTCTL_bit              0120 
+    -------------------------------------------------------------------------
+DATA16_Z
+  Relative segment, address: 0204 - 0205 (0x2 bytes), align: 1
+  Segment part 19.            Intra module refs:   Timer_A
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           count                   0204 
+    -------------------------------------------------------------------------
+DATA16_I
+  Relative segment, address: 0200 - 0201 (0x2 bytes), align: 1
+  Segment part 20.            Intra module refs:   Timer_A
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           freq1                   0200 
+    -------------------------------------------------------------------------
+DATA16_I
+  Relative segment, address: 0202 - 0203 (0x2 bytes), align: 1
+  Segment part 22.            Intra module refs:   Timer_A
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           freq2                   0202 
+    -------------------------------------------------------------------------
+DATA16_Z
+  Relative segment, address: 0206 - 0207 (0x2 bytes), align: 1
+  Segment part 24.            Intra module refs:   Timer_A
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           currentFreq             0206 
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: C09E - C0B5 (0x18 bytes), align: 1
+  Segment part 28.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           main                    C09E            Segment part 19 (?cstart)
+               calls direct
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: C080 - C09D (0x1e bytes), align: 1
+  Segment part 27.            Intra module refs:   main
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           IO_init                 C080 
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: C102 - C113 (0x12 bytes), align: 1
+  Segment part 26.            Intra module refs:   main
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           switch_init             C102 
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: C0B6 - C0C9 (0x14 bytes), align: 1
+  Segment part 25.            Intra module refs:   main
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           timer_init              C0B6 
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: C02C - C061 (0x36 bytes), align: 1
+  Segment part 29.            Intra module refs:   Timer_A::??INTVEC 18
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           Timer_A                 C02C 
+               interrupt function
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: C062 - C07F (0x1e bytes), align: 1
+  Segment part 30.            Intra module refs:   Port1_ISR::??INTVEC 4
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           Port1_ISR               C062 
+               interrupt function
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: C0CA - C0DD (0x14 bytes), align: 1
+  Segment part 31.            Intra module refs:   WDT_ISR::??INTVEC 20
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           WDT_ISR                 C0CA 
+               interrupt function
+    -------------------------------------------------------------------------
+INTVEC
+  Common segment, address: FFE0 - FFE5 (0x6 bytes), align: 1
+  Segment part 15. ROOT 
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           Port1_ISR::??INTVEC 4   FFE4 
+    -------------------------------------------------------------------------
+INTVEC
+  Common segment, address: FFE0 - FFF3 (0x14 bytes), align: 1
+  Segment part 16. ROOT 
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           Timer_A::??INTVEC 18    FFF2 
+    -------------------------------------------------------------------------
+INTVEC
+  Common segment, address: FFE0 - FFF5 (0x16 bytes), align: 1
+  Segment part 17. ROOT 
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           WDT_ISR::??INTVEC 20    FFF4 
+    -------------------------------------------------------------------------
+DATA16_ID
+  Relative segment, address: C000 - C001 (0x2 bytes), align: 1
+  Segment part 21.            Intra module refs:   freq1
+    -------------------------------------------------------------------------
+DATA16_ID
+  Relative segment, address: C002 - C003 (0x2 bytes), align: 1
+  Segment part 23.            Intra module refs:   freq2
+
+    *************************************************************************
+
+  FILE NAME : C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.5\430\lib\dlib\dl430fn.r43
+  LIBRARY MODULE, NAME : ?__dbg_break
+
+  SEGMENTS IN THE MODULE
+  ======================
+<CODE> 1 (was CODE)
+  Relative segment, address: C130 - C131 (0x2 bytes), align: 1
+  Segment part 2.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           __DebugBreak            C130            __exit (?__exit)
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?__exit
+
+  SEGMENTS IN THE MODULE
+  ======================
+<CODE> 1 (was CODE)
+  Relative segment, address: C0F0 - C101 (0x12 bytes), align: 1
+  Segment part 2.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           __exit                  C0F0            Segment part 6 (?_exit)
+                                                   _exit (?_exit)
+               calls direct
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?_exit
+
+  SEGMENTS IN THE MODULE
+  ======================
+<CODE> 1 (was CODE)
+  Relative segment, address: C128, align: 1
+  Segment part 0.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _exit                   C128            exit (?exit)
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: C128 - C12B (0x4 bytes), align: 1
+  Segment part 6.             Intra module refs:   _exit
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?cstart
+
+  SEGMENTS IN THE MODULE
+  ======================
+CSTACK
+  Relative segment, address: 03B0, align: 1
+  Segment part 1.
+    -------------------------------------------------------------------------
+DATA16_Z
+  Relative segment, address: 0208, align: 1
+  Segment part 2.
+    -------------------------------------------------------------------------
+DATA16_I
+  Relative segment, address: 0204, align: 1
+  Segment part 3.
+    -------------------------------------------------------------------------
+DATA16_ID
+  Relative segment, address: C004, align: 1
+  Segment part 4.
+    -------------------------------------------------------------------------
+CSTART
+  Relative segment, address: C004 - C007 (0x4 bytes), align: 1
+  Segment part 9.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           __program_start         C004            ?reset_vector (?reset_vector)
+                                                   Absolute parts (?ABS_ENTRY_MOD)
+           ?cstart_begin           C004 
+    -------------------------------------------------------------------------
+CSTART
+  Relative segment, address: C008 - C013 (0xc bytes), align: 1
+  Segment part 14.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?cstart_init_zero       C008            count (main)
+                                                   currentFreq (main)
+    -------------------------------------------------------------------------
+CSTART
+  Relative segment, address: C014 - C023 (0x10 bytes), align: 1
+  Segment part 15.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?cstart_init_copy       C014            freq1 (main)
+                                                   freq2 (main)
+    -------------------------------------------------------------------------
+CSTART
+  Relative segment, address: C024 - C02B (0x8 bytes), align: 1
+  Segment part 19.            Intra module refs:   Segment part 9
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?cstart_call_main       C024 
+           ?cstart_end             C02C 
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?reset_vector
+
+  SEGMENTS IN THE MODULE
+  ======================
+RESET
+  Relative segment, address: FFFE - FFFF (0x2 bytes), align: 1
+  Segment part 0.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?reset_vector           FFFE            Segment part 9 (?cstart)
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?exit
+
+  SEGMENTS IN THE MODULE
+  ======================
+<CODE> 1 (was CODE)
+  Relative segment, address: C124 - C127 (0x4 bytes), align: 1
+  Segment part 2.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           exit                    C124            Segment part 19 (?cstart)
+               calls direct
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?memcpy
+
+  SEGMENTS IN THE MODULE
+  ======================
+<CODE> 1 (was CODE)
+  Relative segment, address: C0DE - C0EF (0x12 bytes), align: 1
+  Segment part 2.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           memcpy                  C0DE            __data16_memcpy (?memzero)
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?memzero
+
+  SEGMENTS IN THE MODULE
+  ======================
+<CODE> 1 (was CODE)
+  Relative segment, address: C114 - C123 (0x10 bytes), align: 1
+  Segment part 2.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           __data16_memzero        C114            ?cstart_init_zero (?cstart)
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: C12C - C12F (0x4 bytes), align: 1
+  Segment part 3.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           __data16_memcpy         C12C            ?cstart_init_copy (?cstart)
+               calls direct
+
+
+
+
+                ****************************************
+                *                                      *
+                *      SEGMENTS IN ADDRESS ORDER       *
+                *                                      *
+                ****************************************
+
+
+SEGMENT              SPACE    START ADDRESS   END ADDRESS     SIZE  TYPE  ALIGN
+=======              =====    =============   ===========     ====  ====  =====
+DATA16_AN                              0000 - 0000               1   rel    0
+                                       0002 - 0002               1 
+                                       0021 - 0025               5 
+                                       0027 - 0027               1 
+                                       0029 - 002A               2 
+                                       0120 - 0121               2 
+                                       0160 - 0163               4 
+                                       0172 - 0173               2 
+DATA16_I                               0200 - 0203               4   rel    1
+DATA16_Z                               0204 - 0207               4   rel    1
+CSTACK                                 03B0 - 03FF              50   rel    1
+DATA16_C                                  C000                       dse    0
+DATA16_ID                              C000 - C003               4   rel    1
+CSTART                                 C004 - C02B              28   rel    1
+<CODE> 1                               C02C - C131             106   rel    1
+INTVEC                                 FFE0 - FFF5              16   com    1
+RESET                                  FFFE - FFFF               2   rel    1
+
+                ****************************************
+                *                                      *
+                *        END OF CROSS REFERENCE        *
+                *                                      *
+                ****************************************
+
+ 326 bytes of CODE  memory
+  88 bytes of DATA  memory (+ 18 absolute )
+   4 bytes of CONST memory
+
+Errors: none
+Warnings: none
+
