@@ -40,6 +40,7 @@ main:                                                           ; main program
         NOP
 loop:
         JMP loop
+        
         RSEG    CODE
 Int_ADC:                                                        ; Interrupt routine for ADC
         BIC.W   #0x10,0(SP)                                     ; Clear CPUOFF bit from 0(SR)
@@ -54,20 +55,20 @@ Int_Timer:
         JL Timer_A_1
         MOV.W #0x0, &count                                      ; If true, set count to 0 
         BIT.B #0x40, &P1IN                                      ; BIT6 AND P1IN
-        JC Timer_A_2                                            ; Jump if LED is on 
+        JC Timer_A_2                                            ; Jump if LED is on (carry is set)
         MOV.W &ADC10MEM, R15                                    ; Move ADC result to R15
-        ;CLRC                                                   
-        ;RRC.W R15
-        ;RRA.W R15
-        ADD.W #0x1, R15                                         ; ADC10MEM +1
+        CLRC                                                    ; Clear Carry
+        RRC.W R15                                               ; ADC10MEM/4
+        RRA.W R15                                               ; 
+        ADD.W #0x32, R15                                        ; ADC10MEM +50
         MOV.W R15, &freq2                                       ; freq1 = ADC10MEM + 1 
-        JMP Timer_A_0
+        JMP Timer_A_0                                           ; Jump to label Timer_A_0
 Timer_A_2:
         MOV.W &ADC10MEM, R15                                    ; Move ADC result to R15
-        ;CLRC
-        ;RRC.W R15
-        ;RRA.W R15
-        ADD.W #0x1, R15                                         ; ADC10MEM +1
+        CLRC                                                    ; Clear carry
+        RRC.W R15                                               ; ADC10MEM/4
+        RRA.W R15                                               ;
+        ADD.W #0x32, R15                                        ; ADC10MEM +50
         MOV.W R15, &freq1                                       ; freq2 = ADC10MEM + 1 
 Timer_A_0:
         CMP.W #0x0, &currentFreq                                ; Check if currentFreq ==0
