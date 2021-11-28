@@ -1,4 +1,5 @@
 #include <io430.h>
+#define LED1 BIT0
 #define LED2 BIT6
 #define LED3 (BIT1 + BIT3 + BIT5)
 #define SWITCH BIT3
@@ -7,6 +8,7 @@
 #define THREESECONDS 46875     // -- 3 seconds
 #define FLASHRATE80 5860  // 80 flashes/min
 #define FLASHRATE30 15625 // 30 flashes/min
+#define BUZZERRATE 3906
 
 int count = 0;
 int freq1 = 93;
@@ -15,23 +17,21 @@ int currentFreq = 0;
 unsigned int i =0;
 
 void IO_init(void);
-void switch_init(void);
-void timer_init(void);
-void three_second_timer();
+void startThreeSeconds();
+void configureTimer0();
+void configureTimer1();
 void startFlashing80();
-void startFlashing30();
 void driver();
-void buzzerNoise();
 
 void main(void)
 {
-  WDTCTL = WDTPW + WDTHOLD; // Stop WDT
+//  WDTCTL = WDTPW + WDTHOLD; // Stop WDT
+  WDTCTL = WDT_ADLY_1000;
+  IE1 |= WDTIE;               // Enable WDT interrupts in the status register
   //Call initialise functions
   BCSCTL2 |= DIVS_3;              // divide smclk by 8
   IO_init();
-//  switch_init();
-  timer_init();
-  __bis_SR_register(GIE); // Enter LPM0 w/ interrupt
+  __bis_SR_register(GIE);		// Enter Low power mode 0 with interrupts enabled
   driver();
 }
 
@@ -41,108 +41,117 @@ void driver()
   {
     if ((P1IN & SWITCH) == 0)
     {
+      configureTimer1();
       P2OUT |= YELLOW;
-      three_second_timer();
+      startThreeSeconds();  
     }
     else
     {
-      startFlashing30();
       P2OUT &= ~LED3;   // P2.1,P2.3,P2.5 LED Off
       P1OUT &= ~LED2;   // P1.6 LED Off
+      TA0CCR1 =0;
+      i = 0;
     }
   }
 }
 void IO_init()
 {
-  P2DIR |= BUZZEROUT; // P2.4, P2.5 outputs
-  P2DIR |= LED3;      // P2.1,P2.3,P2.5 output
-  P1DIR |= BIT6;      // P1.6 output
-  P2OUT |= 0x1;       // Start P2.0 High
-  P2OUT &= ~0x10;     // Start P2.4 Low
-  P2OUT &= ~LED3;    // P2.1,P2.3,P2.5 LED Off
-//  P2OUT |= BIT1;      // Start P2.1 High
-  P1OUT &= ~BIT6;     // Start P1.6 Low
-  P1DIR = BIT0;
+  P2DIR |= BUZZEROUT;   // P2.4, P2.5 outputs
+  P2DIR |= LED3;        // P2.1,P2.3,P2.5 output
+  P2OUT |= 0x1;         // Start P2.0 High
+  P2OUT &= ~0x10;       // Start P2.4 Low
+  P2OUT &= ~LED3;       // P2.1,P2.3,P2.5 LED Off
+  
+  P1DIR |= 0x41;        // P1.0,P1.6 output
+  P1OUT |= LED1;        // Start P1.0 High
+  P1OUT &= ~LED2;       // Start P1.6 Low
 }
 
-void switch_init()
+void configureTimer1()
 {
-  P1REN |= SWITCH; // Enable pullup/pulldown resistors for P1.3
-  P1OUT |= SWITCH; // Set P1.3 to have pull up resistors
-  P1IE |= SWITCH;  // Enable interrupt on P1.3
-  P1IES |= SWITCH; // Set interrupt flag on the falling edge of logic level on P1.3
+  TA1CCR0 |= BUZZERRATE;	        // Counter value
+  TA1CCTL0 |= CCIE;			// Enable Timer1_A interrupts
+  TA1CCR1 = FLASHRATE30;
+  TA1CTL = TASSEL_2 + MC_1 + ID_3;      // SMCLK, Upmode, /8
 }
 
-void timer_init()
+void startThreeSeconds()
 {
-  TACCTL0 = CCIE; // TACCR0 toggle, interrupt enabled                
-  CCR0 = 3906;    // 1MHz/8/8/3906 ~ 4Hz (period of 0.25s - 1/4=0.25)
-  TACTL = TASSEL_2 + MC_1 + ID_3; // SMCLK, Upmode, /8
-}
-
-void three_second_timer()
-{
-  CCR0 = THREESECONDS;
+  TA0CCTL0 |= CCIE;
+  TA0CCR0 = THREESECONDS;
+  TA0CTL = TASSEL_2 + MC_1 + ID_3; // SMCLK, Upmode, /8 
   __bis_SR_register(LPM0_bits + GIE); // Enter LPM0 w/ interrupt
 }
 
 void startFlashing80()
 {
-  CCR0 = FLASHRATE80;
-  P2OUT &= ~LED3;
   P2OUT |= BIT1;
+  TA0CCTL0 = CCIE;
+  TA0CCR0 = FLASHRATE80;
+  TA0CTL = TASSEL_2 + MC_1 + ID_3; // SMCLK, Upmode, /8
+  __bis_SR_register(LPM0_bits + GIE); // Enter LPM0 w/ interrupt
 }
 
-void startFlashing30()
-{
-  CCR0 = FLASHRATE30;
-}
 
-//// Timer A0 interrupt service routine
+//// Timer0 A0 interrupt service routine
 #pragma vector = TIMER0_A0_VECTOR
-__interrupt void Timer_A(void)
+__interrupt void Timer0_A0(void)
 {
+  i++;
   if ((P1IN & SWITCH) == 0)
   {
-    if(CCR0 == THREESECONDS)
+    if(i == 1)
     {
+      TA0CCR0 = 0;
+      P2OUT &= ~LED3;              // P2.1,P2.3,P2.5 LED Off
       startFlashing80();
     }
-    if(CCR0 == FLASHRATE80)
+    if(i == 8)
     {
-//      buzzerNoise();
-      P1OUT ^= LED2; // P1.6 LED on
-      P2OUT ^= BIT1;
+      WDTCTL = WDT_ADLY_250;
     }
+    P1OUT ^= LED2; // P1.6 LED on
+    P2OUT ^= BIT1;
   }
   else
   {
-    if(CCR0 == FLASHRATE30)
-    {
-      P1OUT ^= BIT0;
-    }
+    P1OUT ^= LED1;
+    P2OUT &= ~LED3; // P2.1,P2.3,P2.5 LED Off
+    P1OUT &= ~LED2; // P1.6 LED Off
+    driver();
   }
 }
 
-void buzzerNoise()
+#pragma vector=TIMER1_A0_VECTOR     // Timer1 A0 interrupt service routine
+ __interrupt void Timer1_A0 (void) 
 {
-  count += CCR0;              // Increment count with current value in CCR0
-  if (count >= 3906)         // Toggle rate of frequencies
+  if ((P1IN & SWITCH) == 0)
   {
-    count = 0;                  
-    if (currentFreq == 0)     //Check current frequency, switch CCR0 to have other frequency
+    count += TA1CCR0;          // Increment count with current value in CCR0
+    if (count >= 3906)         // Toggle rate of frequencies
     {
-      currentFreq = 1;
-      CCR0 = freq2;
+      count = 0;                  
+      if (currentFreq == 0)     //Check current frequency, switch CCR0 to have other frequency
+      {
+        currentFreq = 1;
+        TA1CCR0 = freq2;
+      }
+      else
+      {
+        currentFreq = 0;
+        TA1CCR0 = freq1;
+      }
     }
-    else
-    {
-      currentFreq = 0;
-      CCR0 = freq1;
-    }
+    P2OUT ^= BUZZEROUT;         // Toggle Buzzer Pins 
   }
-  P2OUT ^= BUZZEROUT;         // Toggle Buzzer Pins 
+  else
+  {
+    driver();
+  }
 }
-
-
-
+#pragma vector = WDT_VECTOR  // Interrupt Service Routine (ISR) for Watchdog Timer
+__interrupt void flashLed(void) 
+{
+    IFG1 &= ~WDTIFG;          // clear WDT interrupt flag
+    P1OUT ^= BIT0;            // toggle P1.0
+}
