@@ -14,7 +14,8 @@ int count = 0;
 int freq1 = 93;
 int freq2 = 187;
 int currentFreq = 0;
-unsigned int i =0;
+unsigned int i;
+unsigned int greenLedCount = 0;
 
 void IO_init(void);
 void startThreeSeconds();
@@ -26,10 +27,10 @@ void driver();
 void main(void)
 {
 //  WDTCTL = WDTPW + WDTHOLD; // Stop WDT
-  WDTCTL = WDT_ADLY_1000;
-  IE1 |= WDTIE;               // Enable WDT interrupts in the status register
-  //Call initialise functions
-  BCSCTL2 |= DIVS_3;              // divide smclk by 8
+  i = 0;
+  WDTCTL = WDT_ADLY_250;
+  IE1 |= WDTIE;                         // Enable WDT interrupts in the status register
+  BCSCTL2 |= DIVS_3;                    // divide smclk by 8
   IO_init();
   __bis_SR_register(GIE);		// Enter Low power mode 0 with interrupts enabled
   driver();
@@ -49,7 +50,9 @@ void driver()
     {
       P2OUT &= ~LED3;   // P2.1,P2.3,P2.5 LED Off
       P1OUT &= ~LED2;   // P1.6 LED Off
-      TA0CCR1 =0;
+      TA0CCR0 =0;
+      TA1CCR0 =0;
+//      configureThreeSeconds();
       i = 0;
     }
   }
@@ -63,7 +66,7 @@ void IO_init()
   P2OUT &= ~LED3;       // P2.1,P2.3,P2.5 LED Off
   
   P1DIR |= 0x41;        // P1.0,P1.6 output
-  P1OUT |= LED1;        // Start P1.0 High
+  P1OUT &= ~LED1;        // Start P1.0 High
   P1OUT &= ~LED2;       // Start P1.6 Low
 }
 
@@ -75,12 +78,13 @@ void configureTimer1()
   TA1CTL = TASSEL_2 + MC_1 + ID_3;      // SMCLK, Upmode, /8
 }
 
+
 void startThreeSeconds()
 {
-  TA0CCTL0 |= CCIE;
-  TA0CCR0 = THREESECONDS;
-  TA0CTL = TASSEL_2 + MC_1 + ID_3; // SMCLK, Upmode, /8 
-  __bis_SR_register(LPM0_bits + GIE); // Enter LPM0 w/ interrupt
+    TA0CCTL0 |= CCIE;
+    TA0CCR0 = THREESECONDS;
+    TA0CTL = TASSEL_2 + MC_1 + ID_3; // SMCLK, Upmode, /8 
+    __bis_SR_register(LPM0_bits + GIE); // Enter LPM0 w/ interrupt
 }
 
 void startFlashing80()
@@ -108,16 +112,16 @@ __interrupt void Timer0_A0(void)
     }
     if(i == 8)
     {
-      WDTCTL = WDT_ADLY_250;
+      WDTCTL = WDT_ADLY_1000;
     }
     P1OUT ^= LED2; // P1.6 LED on
     P2OUT ^= BIT1;
   }
   else
   {
-    P1OUT ^= LED1;
     P2OUT &= ~LED3; // P2.1,P2.3,P2.5 LED Off
     P1OUT &= ~LED2; // P1.6 LED Off
+    WDTCTL = WDT_ADLY_250;
     driver();
   }
 }
@@ -127,11 +131,11 @@ __interrupt void Timer0_A0(void)
 {
   if ((P1IN & SWITCH) == 0)
   {
-    count += TA1CCR0;          // Increment count with current value in CCR0
-    if (count >= 3906)         // Toggle rate of frequencies
+    count += TA1CCR0;          // Increment count with current value in TA1CCR0
+    if (count >= BUZZERRATE)   // Toggle rate of frequencies
     {
       count = 0;                  
-      if (currentFreq == 0)     //Check current frequency, switch CCR0 to have other frequency
+      if (currentFreq == 0)     //Check current frequency, switch TA1CCR0 to have other frequency
       {
         currentFreq = 1;
         TA1CCR0 = freq2;
@@ -151,7 +155,6 @@ __interrupt void Timer0_A0(void)
 }
 #pragma vector = WDT_VECTOR  // Interrupt Service Routine (ISR) for Watchdog Timer
 __interrupt void flashLed(void) 
-{
-    IFG1 &= ~WDTIFG;          // clear WDT interrupt flag
-    P1OUT ^= BIT0;            // toggle P1.0
+{ 
+      P1OUT ^= BIT0;
 }
