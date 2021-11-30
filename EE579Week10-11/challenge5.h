@@ -14,7 +14,8 @@ int freq1 = 93;
 int freq2 = 187;
 int currentFreq = 0;
 unsigned int i;
-unsigned int greenLedCount = 0;
+unsigned int greenLedFlag = 0;
+int greenLedCount = 0;
 
 void IO_init();
 void startThreeSeconds();

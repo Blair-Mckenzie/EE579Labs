@@ -9,7 +9,7 @@ int main(void)
 void init()
 {
   i = 0;
-  WDTCTL = WDT_ADLY_1000;                // 250ms interval   
+  WDTCTL = WDT_MDLY_0_5;                // 0.5ms interval   
   IE1 |= WDTIE;                         // Enable WDT interrupts in the status register
   BCSCTL2 |= DIVS_3;                    // divide smclk by 8
   IO_init();
@@ -28,6 +28,7 @@ void init()
       P1OUT &= ~LED2;   // P1.6 LED Off
       TA0CCR0 =0;       // Timer 0 Off
       TA1CCR0 =0;       // Timer 1 Off
+      greenLedFlag = 0;
       i = 0;            // Reset global counter 
     }
   }
@@ -87,6 +88,7 @@ __interrupt void Timer0_A0(void)
     if(i == 8)
     {
       WDTCTL = WDT_ADLY_1000;
+      greenLedFlag = 1;
     }
     P1OUT ^= LED2; // P1.6 LED on
     P2OUT ^= BIT1;
@@ -128,7 +130,25 @@ __interrupt void Timer0_A0(void)
 }
 #pragma vector = WDT_VECTOR  // Interrupt Service Routine (ISR) for Watchdog Timer
 __interrupt void flashLed(void) 
-{ 
-      P1OUT ^= BIT0;
-      __delay_cycles(950000);
+{
+      greenLedCount ++;
+      if(greenLedFlag == 1)
+      {
+        P1OUT ^= BIT0;
+      }
+      else
+      {
+        if(greenLedCount < 10)
+        {
+          P1OUT |= BIT0;
+        }
+        else
+        {
+          P1OUT &= ~BIT0;
+        }
+        if(greenLedCount >= 500)
+        {
+          greenLedCount = 0;
+        }
+      }
 }
