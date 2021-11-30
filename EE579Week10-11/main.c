@@ -1,48 +1,19 @@
 #include <io430.h>
-#define LED1 BIT0
-#define LED2 BIT6
-#define LED3 (BIT1 + BIT3 + BIT5)
-#define SWITCH BIT3
-#define BUZZEROUT 0x11
-#define YELLOW (BIT1 + BIT3)
-#define THREESECONDS 46875     // -- 3 seconds
-#define FLASHRATE80 5860  // 80 flashes/min
-#define FLASHRATE30 15625 // 30 flashes/min
-#define BUZZERRATE 3906
-
-int count = 0;
-int freq1 = 93;
-int freq2 = 187;
-int currentFreq = 0;
-unsigned int i;
-unsigned int greenLedCount = 0;
-
-void IO_init(void);
-void startThreeSeconds();
-void configureTimer1();
-void startFlashing80();
-void driver();
-void setUpandStartWatchDog();
-void init();
+#include "challenge5.h"
 
 int main(void)
 {
-//  WDTCTL = WDTPW + WDTHOLD; // Stop WDT
   init();
   return 0;
 }
 void init()
 {
   i = 0;
-  setUpandStartWatchDog();
+  WDTCTL = WDT_ADLY_1000;                // 250ms interval   
+  IE1 |= WDTIE;                         // Enable WDT interrupts in the status register
   BCSCTL2 |= DIVS_3;                    // divide smclk by 8
   IO_init();
   __bis_SR_register(GIE);		// Enter Low power mode 0 with interrupts enabled
-  driver();
-}
-
-void driver()
-{
   for(;;)
   {
     if ((P1IN & SWITCH) == 0)
@@ -55,12 +26,13 @@ void driver()
     {
       P2OUT &= ~LED3;   // P2.1,P2.3,P2.5 LED Off
       P1OUT &= ~LED2;   // P1.6 LED Off
-      TA0CCR0 =0;
-      TA1CCR0 =0;
-      i = 0;
+      TA0CCR0 =0;       // Timer 0 Off
+      TA1CCR0 =0;       // Timer 1 Off
+      i = 0;            // Reset global counter 
     }
   }
 }
+
 void IO_init()
 {
   P2DIR |= BUZZEROUT;   // P2.4, P2.5 outputs
@@ -72,12 +44,6 @@ void IO_init()
   P1DIR |= 0x41;        // P1.0,P1.6 output
   P1OUT &= ~LED1;        // Start P1.0 High
   P1OUT &= ~LED2;       // Start P1.6 Low
-}
-
-void setUpandStartWatchDog()
-{
-  WDTCTL = WDT_ADLY_250;                // 250ms interval   
-  IE1 |= WDTIE;                         // Enable WDT interrupts in the status register
 }
 
 void configureTimer1()
@@ -164,4 +130,5 @@ __interrupt void Timer0_A0(void)
 __interrupt void flashLed(void) 
 { 
       P1OUT ^= BIT0;
+      __delay_cycles(950000);
 }
