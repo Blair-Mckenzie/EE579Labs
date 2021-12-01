@@ -85,7 +85,7 @@ __interrupt void Timer0_A0(void)
       P2OUT &= ~LED3;              // P2.1,P2.3,P2.5 LED Off
       startFlashing80();
     }
-    if(i == 8)
+    if(i == 6)
     {
       WDTCTL = WDT_ADLY_1000;
       greenLedFlag = 1;

@@ -4,14 +4,14 @@
 #define SWITCH BIT3
 #define BUZZEROUT 0x11
 #define YELLOW (BIT1 + BIT3)
-#define THREESECONDS 46875     // -- 3 seconds
+#define THREESECONDS 45000     // -- 3 seconds
 #define FLASHRATE80 5860  // 80 flashes/min
 #define FLASHRATE30 15625 // 30 flashes/min
 #define BUZZERRATE 3906
 
 int count = 0;
-int freq1 = 93;
-int freq2 = 187;
+int freq1 = 10;
+int freq2 = 15;
 int currentFreq = 0;
 unsigned int i;
 unsigned int greenLedFlag = 0;
