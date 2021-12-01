@@ -57,19 +57,19 @@ void configureTimer1()
 
 void startThreeSeconds()
 {
-    TA0CCTL0 |= CCIE;
+    TA0CCTL0 |= CCIE;                   // Enable Timer0_A Interrupt
     TA0CCR0 = THREESECONDS;
-    TA0CTL = TASSEL_2 + MC_1 + ID_3; // SMCLK, Upmode, /8 
+    TA0CTL = TASSEL_2 + MC_1 + ID_3;    // SMCLK, Upmode, /8 
     __bis_SR_register(LPM0_bits + GIE); // Enter LPM0 w/ interrupt
 }
 
 void startFlashing80()
 {
-  P2OUT |= BIT1;
-  TA0CCTL0 = CCIE;
+  P2OUT |= BIT1;                        // P2.1 High 
+  TA0CCTL0 = CCIE;                      
   TA0CCR0 = FLASHRATE80;
-  TA0CTL = TASSEL_2 + MC_1 + ID_3; // SMCLK, Upmode, /8
-  __bis_SR_register(LPM0_bits + GIE); // Enter LPM0 w/ interrupt
+  TA0CTL = TASSEL_2 + MC_1 + ID_3;      // SMCLK, Upmode, /8
+  __bis_SR_register(LPM0_bits + GIE);   // Enter LPM0 w/ interrupt
 }
 
 //// Timer0 A0 interrupt service routine
@@ -81,22 +81,22 @@ __interrupt void Timer0_A0(void)
   {
     if(i == 1)
     {
-      TA0CCR0 = 0;
+      TA0CCR0 = 0;                 // Timer off
       P2OUT &= ~LED3;              // P2.1,P2.3,P2.5 LED Off
-      startFlashing80();
+      startFlashing80();           // Toggle Red LEDs
     }
     if(i == 6)
     {
-      WDTCTL = WDT_ADLY_1000;
-      greenLedFlag = 1;
+      WDTCTL = WDT_ADLY_1000;      // Change toggle interval of watchdog to 1000ms 
+      greenLedFlag = 1;            // Three seconds has passed after Red LEDs have started flashing 
     }
-    P1OUT ^= LED2; // P1.6 LED on
-    P2OUT ^= BIT1;
+    P1OUT ^= LED2;                 // Toggle P1.6
+    P2OUT ^= BIT1;                 // Toggle P2.1
   }
   else
   {
-    P2OUT &= ~LED3; // P2.1,P2.3,P2.5 LED Off
-    P1OUT &= ~LED2; // P1.6 LED Off
+    P2OUT &= ~LED3;                // P2.1,P2.3,P2.5 LED Off
+    P1OUT &= ~LED2;                // P1.6 LED Off
     init();
   }
 }
